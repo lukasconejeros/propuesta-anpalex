@@ -55,14 +55,6 @@
     .tag-green { background:rgba(5,150,105,.2); color:#6ee7b7; border:1px solid rgba(5,150,105,.3); }
     .tag-gray  { background:rgba(255,255,255,.06); color:#94a3b8; border:1px solid rgba(255,255,255,.1); }
 
-    /* ── RESUMEN TOP ── */
-    .resumen-top { background:var(--cyan-l); border-bottom:1px solid var(--cyan-m); padding:28px 32px; }
-    .resumen-top .rt-inner { max-width:740px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
-    .rt-item { display:flex; gap:12px; align-items:flex-start; }
-    .rt-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
-    .rt-text h4 { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:2px; }
-    .rt-text p { font-size:12px; color:var(--mid); line-height:1.5; }
-
     /* ── SECTIONS ── */
     .section { background:var(--white); border-bottom:1px solid var(--border); padding:64px 32px; }
     .section.bg-alt { background:var(--bg); }
@@ -118,11 +110,6 @@
     .am-footer { padding:10px 14px; background:var(--bg); border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
     .am-cta { font-size:12px; font-weight:700; color:var(--cyan-d); }
     .am-action { background:var(--cyan-d); color:#fff; font-size:11px; font-weight:700; padding:5px 12px; border-radius:6px; }
-    .ad-mockup-text { flex:1; }
-    .ad-mockup-text h3 { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:10px; }
-    .ad-mockup-text p { font-size:14px; color:var(--soft); line-height:1.7; margin-bottom:12px; }
-    .ad-mockup-text .speed-row { display:flex; gap:8px; align-items:center; font-size:13px; color:var(--mid); padding:8px 12px; background:var(--cyan-l); border-radius:8px; margin-bottom:8px; }
-    .ad-mockup-text .speed-row strong { color:var(--cyan-d); }
 
     /* ── PLAN SEPARATOR ── */
     .plan-sep-banner { padding:44px 32px; text-align:center; }
@@ -240,8 +227,6 @@
     .quote-box.amber p { color:#92400e; }
     .quote-box.amber p strong { color:#78350f; }
     .quote-box.green p { color:#065f46; }
-    .quote-box.navy p { color:#94a3b8; font-style:normal; font-size:17px; font-weight:500; }
-    .quote-box.navy p strong { color:#f1f5f9; }
 
     /* ── OFERTA ── */
     .oferta-box { background:var(--amber-l); border:1.5px solid var(--amber-b); border-left:5px solid var(--amber); border-radius:0 16px 16px 0; padding:32px 36px; }
@@ -252,18 +237,6 @@
     .oferta-chips { display:flex; gap:10px; flex-wrap:wrap; }
     .oferta-chip { padding:7px 16px; border-radius:8px; background:#fef3c7; border:1px solid var(--amber-b); font-size:13px; font-weight:700; color:#78350f; }
     .oferta-chip.urgente { background:var(--amber); color:#fff; border-color:var(--amber); }
-
-    /* ── FEE BOX ── */
-    .fee-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; }
-    .fee-box { border-radius:12px; padding:22px 20px; }
-    .fee-box.cyan { background:var(--cyan-l); border:1px solid var(--cyan-m); }
-    .fee-box.green { background:var(--green-l); border:1px solid var(--green-b); }
-    .fee-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; }
-    .fee-box.cyan .fee-label { color:var(--cyan-d); }
-    .fee-box.green .fee-label { color:var(--green); }
-    .fee-box h3 { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:6px; }
-    .fee-box p { font-size:13px; color:var(--soft); line-height:1.6; }
-    .fee-box p strong { color:var(--mid); }
 
     /* ── TIMELINE ── */
     .tl { display:flex; flex-direction:column; }
@@ -305,11 +278,50 @@
     .btn-ws { flex:1; padding:13px 20px; background:#25d366; color:#fff; font-size:15px; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Inter',sans-serif; }
     .btn-cancel { padding:13px 18px; background:var(--bg); color:var(--soft); font-size:14px; font-weight:600; border:1px solid var(--border); border-radius:10px; cursor:pointer; font-family:'Inter',sans-serif; }
 
+    /* ── ADD-ONS ── */
+    .addon-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start; margin-bottom:14px; }
+    .addon-card.premium { border:2px solid var(--cyan-d); background:linear-gradient(135deg,#f0f9ff,#e0f2fe); }
+    .addon-card .ac-icon { width:52px; height:52px; border-radius:13px; background:var(--cyan-l); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+    .addon-card.premium .ac-icon { background:var(--cyan-d); }
+    .addon-card .ac-body { flex:1; }
+    .addon-card .ac-body h3 { font-size:17px; font-weight:800; color:var(--navy); margin-bottom:5px; }
+    .addon-card .ac-body p { font-size:14px; color:var(--soft); line-height:1.6; }
+    .addon-card .ac-price { text-align:right; flex-shrink:0; }
+    .addon-card .ac-price .ac-amount { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--cyan-d); line-height:1; }
+    .addon-card .ac-price .ac-period { font-size:11px; color:var(--mute2); margin-top:3px; }
+    .addon-label-premium { display:inline-flex; align-items:center; gap:5px; background:var(--cyan-d); color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:100px; margin-bottom:8px; }
+
+    /* ── LLAMADAS FEATURES ── */
+    .llamadas-features { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0; }
+    .ll-feat { display:flex; align-items:center; gap:10px; padding:12px 14px; background:rgba(2,132,199,.06); border:1px solid var(--cyan-m); border-radius:10px; font-size:13px; font-weight:600; color:var(--mid); }
+    .ll-feat span { font-size:18px; }
+
+    /* ── PRICING SIMPLE ── */
+    .precio-simple { display:flex; align-items:baseline; gap:6px; margin:8px 0; }
+    .precio-simple .ps-amount { font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:var(--cyan-d); }
+    .precio-simple .ps-period { font-size:13px; color:var(--mute2); }
+    .minutos-box { background:var(--navy); border-radius:12px; padding:18px 20px; margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .mb-item { text-align:center; }
+    .mb-item .mb-num { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--cyan); }
+    .mb-item .mb-label { font-size:11px; color:#64748b; margin-top:2px; }
+    .mb-item.divider { border-left:1px solid rgba(255,255,255,.08); }
+
+    /* ── FEE BOX ── */
+    .fee-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; }
+    .fee-box { border-radius:12px; padding:22px 20px; }
+    .fee-box.cyan { background:var(--cyan-l); border:1px solid var(--cyan-m); }
+    .fee-box.green { background:var(--green-l); border:1px solid var(--green-b); }
+    .fee-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; }
+    .fee-box.cyan .fee-label { color:var(--cyan-d); }
+    .fee-box.green .fee-label { color:var(--green); }
+    .fee-box h3 { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .fee-box p { font-size:13px; color:var(--soft); line-height:1.6; }
+    .fee-box p strong { color:var(--mid); }
+
     @media (max-width:620px) {
       .header h1 { font-size:26px; }
       .header-stats { flex-wrap:wrap; }
       .hstat { min-width:calc(50% - 1px); }
-      .resumen-top .rt-inner { grid-template-columns:1fr; gap:14px; }
       .wrap { padding:0 16px 80px; }
       .section { padding:48px 20px; }
       .feat-grid, .feat-grid.cols3, .fee-grid { grid-template-columns:1fr; }
@@ -321,7 +333,10 @@
       .compare-table th, .compare-table td { padding:8px 10px; font-size:12px; }
       .ad-mockup-wrap { flex-direction:column; }
       .ad-mockup { width:100%; }
-      .real-gallery { grid-template-columns:1fr !important; }
+      .llamadas-features { grid-template-columns:1fr; }
+      .minutos-box { grid-template-columns:1fr; }
+      .addon-card { flex-wrap:wrap; }
+      .addon-card .ac-price { text-align:left; width:100%; margin-top:6px; }
     }
   </style>
 </head>
@@ -357,12 +372,6 @@ function checkPw() {
   <div class="header-brand">🎯 Conejeros IA · Clínica Anpalex</div>
   <h1>Pacientes nuevos cada mes,<br><em>medidos desde el anuncio hasta la silla.</em></h1>
   <p class="header-desc">Ya automatizamos 449 conversaciones de Anpalex con 84.9% de respuesta. Este es el siguiente paso: traer más pacientes con Meta Ads y cerrarlos con el bot que ya tienen.</p>
-  <div class="header-stats">
-    <div class="hstat"><div class="hstat-num">449</div><div class="hstat-label">Conversaciones<br>automatizadas</div></div>
-    <div class="hstat"><div class="hstat-num">84.9%</div><div class="hstat-label">Tasa de<br>respuesta</div></div>
-    <div class="hstat"><div class="hstat-num">102</div><div class="hstat-label">Citas confirmadas<br>sin intervención</div></div>
-    <div class="hstat"><div class="hstat-num">6</div><div class="hstat-label">Citas creadas<br>solas por el bot</div></div>
-  </div>
   <div class="header-tags">
     <span class="tag tag-cyan">Para: Masiel</span>
     <span class="tag tag-green">● Sistema activo desde abril 2026</span>
@@ -370,50 +379,29 @@ function checkPw() {
   </div>
 </header>
 
-<!-- RESUMEN TOP -->
-<div class="resumen-top">
-  <div class="rt-inner">
-    <div class="rt-item">
-      <div class="rt-icon">📣</div>
-      <div class="rt-text"><h4>Meta Ads gestionado</h4><p>Campañas activas, creativos con IA, embudo completo frío→caliente</p></div>
-    </div>
-    <div class="rt-item">
-      <div class="rt-icon">💬</div>
-      <div class="rt-text"><h4>Conectado a tu bot</h4><p>Cada anuncio abre WhatsApp y el bot agenda sin que Daniela haga nada</p></div>
-    </div>
-    <div class="rt-item">
-      <div class="rt-icon">🛡️</div>
-      <div class="rt-text"><h4>Con garantía de resultados</h4><p>Si en 60 días el costo por paciente no baja, el mes 3 va gratis</p></div>
-    </div>
-  </div>
-</div>
-
 <div class="wrap">
 
 <!-- S1: METODOLOGÍA DE TRABAJO -->
 <section class="section">
   <div class="eyebrow">Cómo trabajamos</div>
-  <h2>La metodología:<br><em>un anuncio distinto para cada persona</em></h2>
-  <p class="lead">No todas las personas que ven un anuncio están en el mismo momento. Por eso no hacemos "un anuncio para todos": <strong>dividimos al público en 3 grupos, y a cada grupo le mostramos fotos y mensajes diferentes, con campañas separadas.</strong></p>
+  <h2>Un anuncio distinto<br><em>para cada persona</em></h2>
+  <p class="lead">No hacemos "un anuncio para todos". <strong>Dividimos al público en 3 grupos y a cada grupo le mostramos mensajes y fotos distintos.</strong></p>
   <div class="feat-grid cols3" style="margin-bottom:28px;">
     <div class="feat-card c-cyan">
       <div class="fc-icon">❄️</div>
-      <h3>Público frío — no conoce la clínica</h3>
-      <p>Ve fotos llamativas y profesionales que presentan el servicio con un precio claro. El objetivo: que conozca Anpalex y escriba.</p>
+      <h3>Público frío</h3>
+      <p>No conoce la clínica. Ve una foto llamativa con precio claro para que conozca Anpalex y escriba.</p>
     </div>
     <div class="feat-card c-amber">
       <div class="fc-icon">🌤️</div>
-      <h3>Público tibio — la vio, pero no escribió</h3>
-      <p>Recibe un anuncio distinto, enfocado en generar confianza: el equipo, los resultados, las opiniones de otros pacientes.</p>
+      <h3>Público tibio</h3>
+      <p>Ya la vio pero no escribió. Recibe otro mensaje: equipo, resultados, opiniones de pacientes.</p>
     </div>
     <div class="feat-card c-red">
       <div class="fc-icon">🔥</div>
-      <h3>Público caliente — escribió, pero no agendó</h3>
-      <p>Recibe el empujón final: una oferta concreta con fecha límite para que reserve su hora de una vez.</p>
+      <h3>Público caliente</h3>
+      <p>Escribió pero no agendó. Recibe una oferta concreta con fecha límite para que reserve su hora.</p>
     </div>
-  </div>
-  <div class="quote-box cyan" style="margin-bottom:28px;">
-    <p>Todo gira en torno a <strong>2 servicios</strong>: elegimos juntos los 2 más rentables de la clínica (por ejemplo, una limpieza como puerta de entrada y un tratamiento de mayor valor) y construimos todas las campañas alrededor de ellos.</p>
   </div>
   <div class="eyebrow" style="margin-bottom:14px;">Y todos los anuncios terminan en el mismo lugar</div>
   <div class="funnel">
@@ -448,7 +436,7 @@ function checkPw() {
     </div>
   </div>
   <div class="quote-box cyan">
-    <p>El anuncio no lleva a un formulario ni a una página web: abre WhatsApp y el bot responde, agenda y confirma solo, a cualquier hora. <strong>Esa es la gran ventaja de Anpalex: el sistema ya está construido y lleva meses funcionando.</strong></p>
+    <p>El anuncio no lleva a una web ni a un formulario: abre WhatsApp y el bot agenda solo, a cualquier hora. <strong>Esa es la ventaja de Anpalex: el sistema ya lleva meses funcionando.</strong></p>
   </div>
 </section>
 
@@ -456,96 +444,79 @@ function checkPw() {
 <section class="section bg-alt">
   <div class="eyebrow red">Lo que falta hoy</div>
   <h2>El sistema funciona.<br>Le falta combustible.</h2>
-  <p class="lead">El bot de WhatsApp atiende mensajes entrantes de maravilla. El problema es que la clínica depende 100% del boca a boca para que lleguen esos mensajes.</p>
+  <p class="lead">El bot atiende bien los mensajes que llegan. El problema es que la clínica depende 100% del boca a boca para que lleguen esos mensajes.</p>
   <div class="feat-grid cols3">
     <div class="feat-card c-red">
       <div class="fc-icon">⚙️</div>
-      <h3>Sin infraestructura en Meta</h3>
-      <p>Sin píxel instalado, Meta no aprende de los resultados. La pauta quema plata sin datos que la mejoren.</p>
+      <h3>Sin píxel en Meta</h3>
+      <p>Meta no aprende de los resultados. La pauta quema plata sin datos que la mejoren.</p>
     </div>
     <div class="feat-card c-red">
       <div class="fc-icon">🎨</div>
-      <h3>Sin flujo de creativos</h3>
-      <p>Un anuncio se satura en 2-3 semanas. Sin renovación constante, el costo por paciente sube y sube.</p>
+      <h3>Sin creativos nuevos</h3>
+      <p>Un anuncio se satura en 2-3 semanas. Sin renovación constante, el costo por paciente sube.</p>
     </div>
     <div class="feat-card c-red">
       <div class="fc-icon">🔄</div>
       <h3>Sin seguimiento</h3>
-      <p>Los que vieron el anuncio pero no escribieron se pierden para siempre. Nosotros les volvemos a aparecer con otro mensaje hasta que escriban.</p>
+      <p>Los que vieron el anuncio pero no escribieron se pierden para siempre.</p>
     </div>
   </div>
   <div class="quote-box amber">
-    <p>Sus competidores de Maipú ya están pautando. <strong>Cada mes sin esto son pacientes que ven un anuncio de otra clínica antes que el de Anpalex.</strong></p>
+    <p>Sus competidores de Maipú ya están pautando. <strong>Cada mes sin esto son pacientes que ven el anuncio de otra clínica primero.</strong></p>
   </div>
 </section>
 
-<!-- S3: POR QUÉ NOSOTROS PODEMOS HACERLO MÁS BARATO -->
+<!-- S3: CÓMO LO PRODUCIMOS -->
 <section class="section">
   <div class="eyebrow">Cómo lo producimos</div>
-  <h2>Anuncios nuevos en minutos.<br>No en una semana.</h2>
-  <p class="lead">Usamos IA para generar fotos y videos profesionales a una velocidad que una agencia tradicional no puede igualar. Eso nos permite producir más creativos, renovarlos constantemente y cobrar mucho menos.</p>
-  <div class="ad-mockup-wrap">
-    <div class="ad-mockup">
-      <div class="am-header">
-        <div class="am-avatar">🦷</div>
-        <div>
-          <div class="am-name">Clínica Anpalex</div>
-          <div class="am-sponsored">Patrocinado</div>
-        </div>
-      </div>
-      <div class="am-image">
-        <div class="ai-badge">Generado con IA · Ejemplo</div>
-        <div class="ai-headline">¿Cuándo fue tu última limpieza dental?</div>
-        <div class="ai-price">$19.990</div>
-        <div class="ai-sub">Incluye revisión completa · Maipú</div>
-      </div>
-      <div class="am-footer">
-        <div class="am-cta">Ver más</div>
-        <div class="am-action">Enviar mensaje</div>
-      </div>
-    </div>
-    <div class="ad-mockup-text">
-      <h3>Así se ve un anuncio de Anpalex generado con IA</h3>
-      <p>Generamos con IA fotos llamativas y profesionales, con personas que transmiten confianza. Pueden ser los doctores reales de la clínica o personas creadas por IA — el resultado se ve igual de profesional. Eso nos permite producir muchos anuncios y renovarlos sin límite.</p>
-      <div class="speed-row"><span>🕐</span><span>Agencia tradicional: 5-7 días por unos pocos creativos, diseñador incluido</span></div>
-      <div class="speed-row"><span>⚡</span><span><strong>Nosotros: en minutos, con muchos más creativos</strong>, misma calidad visual</span></div>
-      <div class="speed-row"><span>🔁</span><span>Cuando un anuncio se cansa → nuevo en esa misma tarde</span></div>
-    </div>
+  <h2>Creativos con IA,<br><em>renovados constantemente</em></h2>
+  <p class="lead">Usamos IA para generar fotos y videos profesionales. Más creativos, renovados constantemente, a una fracción del costo de una agencia. Cada anuncio tiene un ángulo distinto:</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px;" class="real-gallery">
+    <figure style="margin:0;">
+      <img src="../../creativos_ai/anpalex/anpalex_BENEFICIO_sonrisa.png" alt="Anuncio Anpalex — beneficio" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
+      <figcaption style="margin-top:10px; padding:8px 14px; background:var(--green-l); border-radius:8px; text-align:center; font-size:13px; font-weight:700; color:var(--green);">✨ Ataca el BENEFICIO — público frío</figcaption>
+    </figure>
+    <figure style="margin:0;">
+      <img src="../../creativos_ai/anpalex/anpalex_MIEDO_sangrado.png" alt="Anuncio Anpalex — urgencia" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
+      <figcaption style="margin-top:10px; padding:8px 14px; background:var(--red-l); border-radius:8px; text-align:center; font-size:13px; font-weight:700; color:var(--red);">⚠️ Ataca el MIEDO — captura al que duda</figcaption>
+    </figure>
   </div>
 
-  <div style="margin-top:36px;">
-    <div class="eyebrow green" style="margin-bottom:14px;">Ejemplos reales que ya hicimos para Anpalex</div>
-    <p class="lead" style="margin-bottom:20px;">No son ejemplos genéricos: estos dos anuncios los produjimos para la clínica con IA. Así de profesionales se ven, con la marca Anpalex y un servicio concreto.</p>
-    <div class="real-gallery" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-      <figure style="margin:0;">
-        <img src="../../creativos_ai/anpalex/anpalex_BENEFICIO_sonrisa.png" alt="Anuncio Anpalex — La sonrisa que abre puertas" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
-        <figcaption style="font-size:12px; color:var(--mute2); margin-top:8px; text-align:center;">Ángulo beneficio · público frío</figcaption>
-      </figure>
-      <figure style="margin:0;">
-        <img src="../../creativos_ai/anpalex/anpalex_MIEDO_sangrado.png" alt="Anuncio Anpalex — ¿Te sangran las encías al cepillarte?" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
-        <figcaption style="font-size:12px; color:var(--mute2); margin-top:8px; text-align:center;">Ángulo urgencia · capta al que duda</figcaption>
-      </figure>
+  <!-- VOLUMEN DE CREATIVOS -->
+  <div style="background:var(--navy); border-radius:16px; padding:28px 32px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:0;">
+    <div style="text-align:center; padding:0 16px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:42px; font-weight:700; color:var(--cyan); line-height:1;">~30</div>
+      <div style="font-size:13px; color:#94a3b8; margin-top:6px; font-weight:600;">fotos por mes<br><span style="color:#475569; font-weight:400; font-size:12px;">incluidos reemplazos de fin de mes</span></div>
+    </div>
+    <div style="text-align:center; padding:0 16px; border-left:1px solid rgba(255,255,255,.08); border-right:1px solid rgba(255,255,255,.08);">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:42px; font-weight:700; color:#34d399; line-height:1;">4+</div>
+      <div style="font-size:13px; color:#94a3b8; margin-top:6px; font-weight:600;">videos por mes<br><span style="color:#475569; font-weight:400; font-size:12px;">solo en el Plan Pro</span></div>
+    </div>
+    <div style="text-align:center; padding:0 16px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:42px; font-weight:700; color:#fbbf24; line-height:1;">∞</div>
+      <div style="font-size:13px; color:#94a3b8; margin-top:6px; font-weight:600;">renovaciones<br><span style="color:#475569; font-weight:400; font-size:12px;">cuando un anuncio se cansa</span></div>
     </div>
   </div>
 </section>
 
-<!-- S4: FEE VS AD SPEND (compacto) -->
+<!-- S4: DOS MONTOS -->
 <section class="section bg-alt">
   <div class="eyebrow">Antes de los precios</div>
   <h2>Dos montos distintos,<br>sin confusión</h2>
   <div class="fee-grid">
     <div class="fee-box cyan">
       <div class="fee-label">Gasto 1 — Pauta</div>
-      <h3>Plata que va a Meta</h3>
+      <h3>💳 Va a Meta</h3>
       <p>Lo que Meta cobra por mostrar los anuncios. Lo paga la clínica <strong>con su propia tarjeta, directo a Meta</strong>. Nosotros nunca tocamos esa plata.</p>
     </div>
     <div class="fee-box green">
       <div class="fee-label">Gasto 2 — Honorario</div>
-      <h3>Plata que va a nosotros</h3>
+      <h3>🧾 Va a nosotros</h3>
       <p>Lo que nos pagan por crear anuncios, configurar campañas, optimizar y reportar. <strong>Monto fijo mensual, sin sorpresas.</strong></p>
     </div>
   </div>
-  <p style="font-size:13px; color:var(--mute2); text-align:center;">En cada plan mostramos los dos montos por separado y el desembolso total real.</p>
 </section>
 
 </div><!-- /wrap -->
@@ -554,68 +525,54 @@ function checkPw() {
 <div class="plan-sep-banner basico">
   <div class="plan-num">Plan 01 de 02</div>
   <h2>Plan Básico · "Encendido"</h2>
-  <p>Un solo objetivo: <strong>conseguir clientes nuevos</strong>. Lo necesario para que lleguen pacientes por Meta y el bot los agende.</p>
-  <div class="plan-sep-outcome">🎯 Objetivo: 5 a 8 pacientes nuevos al mes</div>
+  <p>Lo necesario para que lleguen pacientes por Meta y el bot los agende.</p>
+  <div class="plan-sep-outcome">🎯 5 a 8 pacientes nuevos al mes</div>
 </div>
 
 <div class="wrap">
 
-<!-- S5: BÁSICO — LO QUE CONSIGUEN -->
+<!-- S5: BÁSICO — LO QUE INCLUYE -->
 <section class="section">
   <div class="eyebrow green">Plan Básico · Qué incluye</div>
   <h2>Todo lo necesario para<br><span class="green">arrancar y medir</span></h2>
   <div class="feat-grid cols3">
     <div class="feat-card c-green">
       <div class="fc-icon">💬</div>
-      <h3>Campaña 1 — Ventas por WhatsApp</h3>
-      <p>Meta busca a las personas con más ganas de comprar y las manda directo al WhatsApp de la clínica, donde el bot las agenda.</p>
-    </div>
-    <div class="feat-card c-green">
-      <div class="fc-icon">🎯</div>
-      <h3>Campaña 2 — Clientes potenciales por WhatsApp</h3>
-      <p>Captura a los interesados que quieren más información y los lleva a la misma conversación con el bot. Nadie queda sin atender.</p>
-    </div>
-    <div class="feat-card c-green">
-      <div class="fc-icon">🏗️</div>
-      <h3>Base técnica lista en semana 1</h3>
-      <p>Configuramos el seguimiento en Meta para que el algoritmo aprenda de cada cita agendada, no solo de cada clic.</p>
+      <h3>2 campañas activas</h3>
+      <p>Ventas por WhatsApp + Clientes potenciales. Las dos mandan directo al bot de la clínica.</p>
     </div>
     <div class="feat-card c-green">
       <div class="fc-icon">🖼️</div>
       <h3>10 fotos por campaña</h3>
-      <p>Generadas con IA: 2 de oferta o promesa, 4 que muestran un beneficio y 4 que apelan al miedo del paciente (ej. encías que sangran). Renovación constante para que Meta no las queme.</p>
+      <p>2 de oferta, 4 de beneficio, 4 de miedo. Renovación constante para que Meta no las queme.</p>
     </div>
     <div class="feat-card c-green">
       <div class="fc-icon">🔧</div>
-      <h3>Análisis 1 vez al mes</h3>
-      <p>Revisamos qué anuncio funciona y cuál no. El que no funciona se elimina y se reemplaza por uno nuevo.</p>
+      <h3>Optimización mensual</h3>
+      <p>Revisamos qué funciona, eliminamos lo que no y lo reemplazamos.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🏗️</div>
+      <h3>Setup técnico completo</h3>
+      <p>Píxel, audiencias y conexión con el bot configurados en la semana 1.</p>
     </div>
     <div class="feat-card c-green">
       <div class="fc-icon">📋</div>
-      <h3>Reporte mensual fácil de leer</h3>
-      <p>Cuántas personas escribieron, cuántas agendaron, cuánto costó cada paciente y cuánto retornó. Reunión de 30 minutos para revisarlo juntos.</p>
+      <h3>Reporte mensual</h3>
+      <p>Cuántos escribieron, cuántos agendaron, cuánto costó cada paciente y cuánto retornó. Reunión de 30 min.</p>
     </div>
-  </div>
-  <div class="quote-box green" style="margin-top:24px;">
-    <p>Las dos campañas están <strong>conectadas al bot que ya funciona</strong>: la persona toca el anuncio, se abre WhatsApp, y el bot responde y agenda sin que nadie de la clínica haga nada.</p>
-  </div>
-  <div style="margin-top:32px;">
-    <div class="eyebrow green" style="margin-bottom:14px;">Qué trae cada reporte (en los dos planes)</div>
-    <div class="metric-list">
-      <div class="metric-item"><div class="mi-icon">💬</div><div class="mi-text"><strong>Personas que escribieron</strong> — cuántas conversaciones nuevas llegaron desde los anuncios.</div></div>
-      <div class="metric-item"><div class="mi-icon">📅</div><div class="mi-text"><strong>Pacientes que agendaron</strong> — cuántas de esas conversaciones terminaron en una cita.</div></div>
-      <div class="metric-item"><div class="mi-icon">💰</div><div class="mi-text"><strong>Costo por paciente (CAC)</strong> — cuánta plata de anuncios costó conseguir cada paciente nuevo.</div></div>
-      <div class="metric-item"><div class="mi-icon">📈</div><div class="mi-text"><strong>Retorno (ROI)</strong> — por cada peso invertido, cuántos pesos volvieron a la clínica.</div></div>
-      <div class="metric-item"><div class="mi-icon">⏳</div><div class="mi-text"><strong>Vida útil del paciente (LTV)</strong> — cuánto gasta en total un paciente durante todo su tiempo en la clínica, no solo en la primera visita.</div></div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🤖</div>
+      <h3>Conectado al bot</h3>
+      <p>Cada anuncio abre WhatsApp y el bot agenda solo, 24/7, sin que Daniela haga nada.</p>
     </div>
   </div>
 </section>
 
-<!-- S6: BÁSICO PRECIO + ROI -->
+<!-- S6: BÁSICO PRECIO -->
 <section class="section bg-alt">
   <div class="eyebrow green">Plan Básico · Inversión</div>
   <h2>Cuánto cuesta</h2>
-  <p class="lead">El honorario es lo que nos pagan a nosotros. La pauta va directo a Meta desde la tarjeta de la clínica.</p>
   <div class="pricing-card basico">
     <div class="pc-eyebrow">Honorario mensual</div>
     <div class="pc-main">
@@ -640,7 +597,7 @@ function checkPw() {
   <div class="roi-box">
     <div class="roi-eyebrow">¿Cuándo se paga solo?</div>
     <h3>Con 1 paciente de ortodoncia o implante, el plan queda cubierto.</h3>
-    <p>El ticket promedio de un tratamiento mayor en Anpalex supera los $600.000. Si el plan trae aunque sea <strong>2 pacientes nuevos al mes</strong> con ese perfil, el retorno es 2x en el primer mes. Y esos pacientes siguen volviendo.</p>
+    <p>El ticket promedio de un tratamiento mayor supera los $600.000. Con <strong>2 pacientes nuevos al mes</strong> de ese perfil, el retorno es 2x en el primer mes.</p>
   </div>
 </section>
 
@@ -650,42 +607,42 @@ function checkPw() {
 <div class="plan-sep-banner pro">
   <div class="plan-num">Plan 02 de 02</div>
   <h2>Plan Pro · "Escalable"</h2>
-  <p>Dos objetivos a la vez: <strong>conseguir más clientes y que la clínica se conozca mejor</strong> — más seguidores en Instagram y Facebook, más pacientes, y una marca más sólida.</p>
-  <div class="plan-sep-outcome">🚀 Objetivo: 12 a 20 pacientes nuevos al mes + crecer la marca</div>
+  <p>Más clientes y marca más fuerte: más seguidores en Instagram y Facebook, sistema que recupera a cada interesado.</p>
+  <div class="plan-sep-outcome">🚀 12 a 20 pacientes nuevos al mes + crecer la marca</div>
 </div>
 
 <div class="wrap">
 
-<!-- S7: PRO ATTRIBUTION STACK (antes del precio) -->
+<!-- S7: PRO DIFERENCIADOR -->
 <section class="section">
   <div class="eyebrow amber">⭐ El diferenciador del Plan Pro</div>
   <h2>El bot no deja escapar<br>a nadie que mostró interés</h2>
   <div class="quote-box amber" style="margin-bottom:28px;">
-    <p>De cada 10 personas que escriben a una clínica, 6 o 7 no agendan a la primera. En la mayoría de las clínicas, esas personas se pierden para siempre. <strong>En el Plan Pro, el bot las recupera.</strong></p>
+    <p>De cada 10 personas que escriben, 6 o 7 no agendan a la primera. <strong>En el Plan Pro, el bot las recupera.</strong></p>
   </div>
   <div class="feat-grid cols3" style="margin-bottom:28px;">
     <div class="feat-card c-cyan">
       <div class="fc-icon">🔁</div>
       <h3>Seguimiento activo</h3>
-      <p>A todos los que hablaron con el bot pero no agendaron, el bot les vuelve a escribir a los pocos días para retomar la conversación.</p>
+      <p>El bot vuelve a escribir a los que no agendaron para retomar la conversación.</p>
     </div>
     <div class="feat-card c-cyan">
       <div class="fc-icon">🎁</div>
       <h3>Promociones de recuperación</h3>
-      <p>Si la persona sigue sin decidirse, recibe una oferta especial pensada para que reserve su hora de una vez.</p>
+      <p>Si sigue sin decidirse, recibe una oferta especial para que reserve su hora.</p>
     </div>
     <div class="feat-card c-cyan">
       <div class="fc-icon">📈</div>
-      <h3>Análisis 2 veces al mes</h3>
-      <p>Cada 15 días revisamos las campañas, eliminamos los anuncios que no funcionan y los reemplazamos por nuevos. Con reporte quincenal.</p>
+      <h3>Análisis cada 15 días</h3>
+      <p>El doble que el Básico: renovamos anuncios y enviamos reporte quincenal.</p>
     </div>
   </div>
-  <p class="lead" style="margin-bottom:24px;">Además, el Plan Pro mide el <strong>valor completo de cada paciente</strong>: conectamos cada anuncio con cada paciente y con lo que factura en Dentalink — no solo en su primera visita.</p>
+
   <div class="eyebrow" style="margin-bottom:14px;">El recorrido real de un paciente</div>
   <div class="attr-flow">
     <div class="attr-step">
       <div class="attr-day">Día 0</div>
-      <div class="attr-event">Ve el anuncio "Limpieza $19.990" en Instagram → clic → WhatsApp → bot agenda.</div>
+      <div class="attr-event">Ve el anuncio "Limpieza $19.990" → clic → WhatsApp → bot agenda.</div>
       <div class="attr-ltv">CAC: $35.000</div>
     </div>
     <div class="attr-step">
@@ -705,71 +662,54 @@ function checkPw() {
     </div>
     <div class="attr-step highlight">
       <div class="attr-day">TOTAL año 1</div>
-      <div class="attr-event">Todo atribuido al anuncio del Día 0. Un solo paciente, un solo click.</div>
+      <div class="attr-event">Todo atribuido al anuncio del Día 0. Un solo clic.</div>
       <div class="attr-ltv">$1.094.990 · ROI 31x</div>
     </div>
   </div>
-  <div class="quote-box cyan">
-    <p>Podemos hacer este seguimiento porque el bot ya está conectado a Dentalink: sabe quién escribió, quién agendó y quién no. <strong>Una agencia externa no tiene ese acceso.</strong></p>
-  </div>
 </section>
 
-<!-- S8: PRO — LO QUE INCLUYE -->
+<!-- S8: PRO INCLUYE -->
 <section class="section bg-alt">
   <div class="eyebrow">Plan Pro · Qué incluye</div>
   <h2>Todo el Básico, <em>más el sistema completo</em></h2>
   <div class="feat-grid cols3">
     <div class="feat-card c-cyan">
-      <div class="fc-icon">🔁</div>
-      <h3>Seguimiento activo con el bot</h3>
-      <p>El bot vuelve a escribir a los que hablaron y no agendaron, y les ofrece promociones para recuperarlos. Nadie se pierde.</p>
+      <div class="fc-icon">🔀</div>
+      <h3>Embudo 3 etapas</h3>
+      <p>Frío (presentación) → Tibio (confianza) → Caliente (oferta de cierre).</p>
     </div>
     <div class="feat-card c-cyan">
       <div class="fc-icon">🎬</div>
-      <h3>15 fotos + 2 videos por campaña</h3>
-      <p>15 fotos (6 de miedo, 6 de beneficio, 3 de oferta) más 2 videos por campaña. Nosotros creamos la estrategia y el guión de cada video. El video es el formato que Meta más premia.</p>
-    </div>
-    <div class="feat-card c-cyan">
-      <div class="fc-icon">🔀</div>
-      <h3>Embudo 3 etapas</h3>
-      <p>Frío (presentación) → Tibio (mensaje distinto para los que ya vieron) → Caliente (oferta de cierre para los que estaban listos).</p>
+      <h3>15 fotos + 2 videos</h3>
+      <p>Por campaña. Nosotros creamos la estrategia y el guión. Video es el formato que Meta más premia.</p>
     </div>
     <div class="feat-card c-cyan">
       <div class="fc-icon">📣</div>
       <h3>Campaña de reconocimiento</h3>
-      <p>2 videos llamativos pensados para que la gente recuerde la clínica, no para vender directo. Hacen que más personas conozcan el Instagram y Facebook de Anpalex: más seguidores, más presencia, más confianza.</p>
+      <p>Más seguidores en Instagram y Facebook. La gente conoce y recuerda la clínica antes de necesitarla.</p>
     </div>
     <div class="feat-card c-cyan">
-      <div class="fc-icon">🎨</div>
-      <h3>Mejora de marca</h3>
-      <p>Trabajamos la imagen de la clínica: identidad visual coherente, tono y mensajes que hacen que Anpalex se vea más profesional en todos los canales.</p>
+      <div class="fc-icon">🔬</div>
+      <h3>Análisis de campañas 2 veces al mes</h3>
+      <p>La IA revisa el rendimiento completo de cada campaña: qué funcionó, qué no, cómo mejorar. Lo que no convierte se elimina; lo que sí, se potencia y escala.</p>
     </div>
     <div class="feat-card c-cyan">
-      <div class="fc-icon">📋</div>
-      <h3>Lead Ads: los tímidos también</h3>
-      <p>Formulario dentro de Instagram. Captura nombre y teléfono de los que no quieren escribir por WhatsApp. El bot los contacta después.</p>
+      <div class="fc-icon">📸</div>
+      <h3>3 fotos semanales para el perfil</h3>
+      <p>Creamos y subimos nosotros 3 fotos por semana con sus descripciones, para Instagram y Facebook. Tips dentales, contenido atractivo, cuenta siempre activa. Primero te mandamos las de la semana para que las apruebes.</p>
     </div>
     <div class="feat-card c-cyan">
-      <div class="fc-icon">📊</div>
-      <h3>Dashboard en tiempo real</h3>
-      <p>Link privado 24/7. Masiel puede ver los resultados en cualquier momento sin esperar el reporte.</p>
+      <div class="fc-icon">🌐</div>
+      <h3>Auditoría de web y Google</h3>
+      <p>Analizamos tu página web para mejorar la conversión de visitas en consultas, y revisamos qué tan bien posicionada está la clínica en Google para que más personas la encuentren.</p>
     </div>
-    <div class="feat-card c-cyan">
-      <div class="fc-icon">⚡</div>
-      <h3>Análisis 2 veces al mes</h3>
-      <p>El doble que el Básico: cada 15 días eliminamos los anuncios que no funcionan, los reemplazamos por nuevos y enviamos el reporte.</p>
-    </div>
-  </div>
-  <div class="quote-box cyan" style="margin-top:24px;">
-    <p>La diferencia es clara: <strong>el Básico es para conseguir clientes. El Pro es para conseguir más clientes y, además, hacer crecer la clínica</strong> — más seguidores, mejor marca y un sistema que recupera a cada interesado.</p>
   </div>
 </section>
 
-<!-- S9: PRO PRECIO + ROI -->
+<!-- S9: PRO PRECIO -->
 <section class="section">
   <div class="eyebrow">Plan Pro · Inversión</div>
   <h2>Cuánto cuesta</h2>
-  <p class="lead">Mismo modelo que el Básico. Honorario fijo a nosotros, pauta directo a Meta.</p>
   <div class="pricing-card pro">
     <div class="pc-eyebrow">Honorario mensual</div>
     <div class="pc-main">
@@ -794,25 +734,7 @@ function checkPw() {
   <div class="roi-box">
     <div class="roi-eyebrow">El contexto real</div>
     <h3>Un solo paciente de implante cubre el plan completo de ese mes.</h3>
-    <p>El ticket promedio de un implante supera el $1.000.000. Si el Plan Pro trae <strong>3 pacientes con ese perfil al mes</strong> — y el sistema de atribución lo prueba con datos reales — el retorno es 3x sobre la inversión total. Mes a mes.</p>
-  </div>
-</section>
-
-<!-- S10: GARANTÍA — SECCIÓN PROPIA -->
-<section class="section bg-alt">
-  <div class="eyebrow green">Garantía de resultados</div>
-  <h2>Si no funciona,<br><em>el mes 3 va gratis.</em></h2>
-  <div class="garantia-block">
-    <div class="gb-icon">🛡️</div>
-    <div class="gb-eyebrow">Garantía exclusiva Plan Pro</div>
-    <h2>Sin resultados en 60 días → mes 3 sin costo</h2>
-    <p>Si en los primeros 2 meses el costo por paciente nuevo no baja del promedio del mercado dental chileno, <strong>el mes 3 lo damos sin cargo</strong>. Sin trámites, sin letra chica.</p>
-    <div class="gb-conditions">
-      <span class="gb-cond">60 días de margen</span>
-      <span class="gb-cond">Sin preguntas incómodas</span>
-      <span class="gb-cond">Exclusivo Plan Pro</span>
-      <span class="gb-cond">Mes 3 gratis si no hay resultados</span>
-    </div>
+    <p>El ticket de un implante supera el $1.000.000. Con <strong>3 pacientes nuevos de ese perfil al mes</strong>, el retorno es 3x sobre la inversión total.</p>
   </div>
 </section>
 
@@ -833,128 +755,83 @@ function checkPw() {
         <tr><td class="feat-col">Objetivo de pacientes / mes</td><td class="col-center">5 – 8</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">12 – 20</td></tr>
         <tr><td class="feat-col">Honorario total con IVA</td><td class="col-center">$380.800</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">$821.100</td></tr>
         <tr><td class="feat-col" style="color:var(--mute2);">+ Pauta Meta sugerida</td><td class="col-center" style="color:var(--mute);">$200.000</td><td class="col-center" style="color:var(--mute);">$450.000</td></tr>
-        <tr><td class="feat-col">Para qué sirve</td><td class="col-center">Conseguir clientes</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">Más clientes + crecer la marca</td></tr>
-        <tr><td class="feat-col">Campañas activas</td><td class="col-center">2 — Ventas + Clientes potenciales</td><td class="col-center">3 embudo + reconocimiento IG/FB</td></tr>
+        <tr><td class="feat-col">Campañas activas</td><td class="col-center">2</td><td class="col-center">3 embudo + reconocimiento</td></tr>
         <tr><td class="feat-col">Creativos por campaña</td><td class="col-center">10 fotos</td><td class="col-center">15 fotos + 2 videos</td></tr>
         <tr><td class="feat-col">Análisis y optimización</td><td class="col-center">1 vez al mes</td><td class="col-center">2 veces al mes</td></tr>
-        <tr><td class="feat-col">Reportes (escribieron, agendaron, CAC, ROI, LTV)</td><td class="col-center">Mensual</td><td class="col-center">Cada 15 días</td></tr>
-        <tr><td class="feat-col">Bot recontacta a los que no agendaron</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
-        <tr><td class="feat-col">Promociones de recuperación</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Bot recupera a los que no agendaron</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
         <tr><td class="feat-col">Campaña de reconocimiento (más seguidores)</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
-        <tr><td class="feat-col">Mejora de marca</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
         <tr><td class="feat-col">Dashboard en vivo 24/7</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
-        <tr><td class="feat-col">Lead Ads (captura tímidos)</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
-        <tr><td class="feat-col">Atribución anuncio → paciente → factura</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
-        <tr><td class="feat-col">Garantía de resultados</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">3 fotos semanales para el perfil (nosotros las subimos)</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Auditoría web y posicionamiento en Google</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
         <tr class="row-total"><td class="feat-col">Total mensual (IVA + pauta)</td><td class="col-center" style="font-weight:700;">$580.800</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">$1.271.100</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
+<!-- S12: SERVICIOS OPCIONALES -->
+<section class="section bg-alt">
+  <div class="eyebrow amber">⚡ Servicios Premium · opcionales</div>
+  <h2>Agrega más potencia<br>al plan que elijas</h2>
+  <p class="lead">Cada servicio tiene su precio aparte. Se activan solo si los quieres.</p>
 
-<!-- ESTILOS ADD-ONS + DEMO -->
-<style>
-  .addon-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start; margin-bottom:14px; }
-  .addon-card .ac-icon { width:52px; height:52px; border-radius:13px; background:var(--cyan-l); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
-  .addon-card .ac-body { flex:1; }
-  .addon-card .ac-body h3 { font-size:17px; font-weight:800; color:var(--navy); margin-bottom:5px; }
-  .addon-card .ac-body p { font-size:14px; color:var(--soft); line-height:1.6; }
-  .addon-card .ac-price { text-align:right; flex-shrink:0; }
-  .addon-card .ac-price .ac-amount { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--cyan-d); line-height:1; }
-  .addon-card .ac-price .ac-period { font-size:11px; color:var(--mute2); margin-top:3px; }
-  @media (max-width:620px) {
-    .addon-card { flex-wrap:wrap; }
-    .addon-card .ac-price { text-align:left; width:100%; margin-top:6px; }
-  }
-  .demo-section { background:var(--navy); border-radius:20px; padding:40px 36px; margin-top:28px; position:relative; overflow:hidden; }
-  .demo-section::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#34d399); }
-  .demo-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(52,211,153,.12); border:1px solid rgba(52,211,153,.25); color:#34d399; font-size:12px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:18px; }
-  .demo-title { font-size:22px; font-weight:800; color:#fff; margin-bottom:8px; }
-  .demo-sub { font-size:15px; color:#94a3b8; margin-bottom:24px; line-height:1.6; }
-  .demo-caps { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px; }
-  .demo-cap { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:11px 15px; display:flex; align-items:center; gap:10px; font-size:13px; color:#cbd5e1; }
-  .demo-cap span { font-size:17px; }
-  .demo-call-box { background:rgba(56,189,248,.08); border:1.5px solid rgba(56,189,248,.25); border-radius:14px; padding:24px 28px; text-align:center; }
-  .demo-mic-note { font-size:13px; color:#64748b; margin-bottom:18px; }
-  .demo-mic-note strong { color:#94a3b8; }
-  #call-btn { display:inline-flex; align-items:center; gap:10px; padding:15px 34px; background:var(--cyan-d); color:#fff; font-size:16px; font-weight:700; font-family:'Inter',sans-serif; border:none; border-radius:12px; cursor:pointer; transition:background .2s; }
-  #call-btn.active { background:#dc2626; }
-  #call-btn:disabled { opacity:.5; cursor:not-allowed; }
-  #call-status { margin-top:14px; font-size:14px; color:#64748b; min-height:20px; }
-  #call-status.connected { color:#34d399; font-weight:600; }
-  #call-status.error { color:#f87171; }
-  @media (max-width:620px) { .demo-caps { grid-template-columns:1fr; } }
-</style>
-
-<!-- S12B: SERVICIOS PARA AÑADIR -->
-<section class="section">
-  <div class="eyebrow amber">Opcionales · se suman a cualquier plan</div>
-  <h2>Servicios para <em>añadir</em></h2>
-  <p class="lead">Si quieres ir más allá de la publicidad, puedes sumar estos servicios al plan que elijas. Cada uno tiene su precio aparte y se cobra solo si lo activas.</p>
-
-  <div class="addon-card">
-    <div class="ac-icon">📸</div>
-    <div class="ac-body">
-      <h3>Contenido orgánico para redes</h3>
-      <p>Subimos contenido llamativo y profesional al Instagram y Facebook de Anpalex: <strong>2 fotos + 1 video a la semana</strong>. Mantiene las redes vivas y atrae seguidores sin pagar pauta.</p>
+  <!-- AGENTE DE LLAMADAS — REDISEÑADO -->
+  <div style="background:var(--navy); border-radius:20px; overflow:hidden; margin-bottom:14px; position:relative;">
+    <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#34d399);"></div>
+    <div style="padding:36px 36px 28px;">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:220px;">
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(2,132,199,.15); border:1px solid rgba(2,132,199,.3); color:var(--cyan); font-size:11px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:14px; text-transform:uppercase; letter-spacing:1px;">⭐ Servicio Premium</div>
+          <h3 style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px; line-height:1.2;">Agente de llamadas con IA</h3>
+          <p style="font-size:15px; color:#94a3b8; line-height:1.65; margin-bottom:24px;">Atiende y hace llamadas en español natural, las 24 horas. Sin que nadie de la clínica intervenga.</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:11px 14px;">
+              <span style="font-size:20px;">📲</span><span style="font-size:13px; color:#cbd5e1; font-weight:600;">Recibe llamadas nuevas</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:11px 14px;">
+              <span style="font-size:20px;">✅</span><span style="font-size:13px; color:#cbd5e1; font-weight:600;">Confirma citas pendientes</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:11px 14px;">
+              <span style="font-size:20px;">🔁</span><span style="font-size:13px; color:#cbd5e1; font-weight:600;">Reactiva pacientes inactivos</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:11px 14px;">
+              <span style="font-size:20px;">🎁</span><span style="font-size:13px; color:#cbd5e1; font-weight:600;">Ofrece promociones activas</span>
+            </div>
+          </div>
+        </div>
+        <!-- PRECIOS -->
+        <div style="display:flex; flex-direction:column; gap:12px; min-width:180px;">
+          <div style="background:rgba(2,132,199,.12); border:1.5px solid rgba(2,132,199,.3); border-radius:14px; padding:20px 22px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Plan Base</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:#fff; line-height:1;">$200.000</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">/ mes · 200 min incluidos</div>
+          </div>
+          <div style="background:rgba(52,211,153,.1); border:1.5px solid rgba(52,211,153,.25); border-radius:14px; padding:20px 22px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:#34d399; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Plan Alto</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:#fff; line-height:1;">$390.000</div>
+            <div style="font-size:12px; color:#64748b; margin-top:4px;">/ mes · 350 min incluidos</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="ac-price"><div class="ac-amount">+$160.000</div><div class="ac-period">al mes</div></div>
+    <!-- FOOTER -->
+    <div style="background:rgba(255,255,255,.03); border-top:1px solid rgba(255,255,255,.07); padding:14px 36px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:#475569;">Tecnología: <strong style="color:#64748b;">Vapi + Claude IA</strong></div>
+      <div style="font-size:13px; color:#475569;">Minuto extra: <strong style="color:#fbbf24;">$350</strong> en ambos planes</div>
+    </div>
   </div>
 
-  <div class="addon-card">
-    <div class="ac-icon">📞</div>
-    <div class="ac-body">
-      <h3>Agente de llamadas con IA</h3>
-      <p>Un agente que contesta y hace llamadas por teléfono: atiende a pacientes nuevos, confirma citas y reactiva inactivos hablando en español natural, las 24 horas. Pruébalo tú mismo más abajo 👇</p>
-    </div>
-    <div class="ac-price"><div class="ac-amount">+$290.000</div><div class="ac-period">al mes</div></div>
-  </div>
 
   <div class="addon-card">
     <div class="ac-icon">💬</div>
     <div class="ac-body">
       <h3>Responder comentarios de Instagram</h3>
-      <p>Respondemos los comentarios de las publicaciones y anuncios de Anpalex para que ninguna consulta quede sin contestar y la clínica se vea siempre activa.</p>
+      <p>Respondemos los comentarios de publicaciones y anuncios. La clínica siempre activa y atenta.</p>
     </div>
     <div class="ac-price"><div class="ac-amount">+$29.000</div><div class="ac-period">al mes</div></div>
   </div>
-
-  <!-- DEMO AGENTE DE LLAMADAS -->
-  <div class="demo-section">
-    <div class="demo-badge">🎙️ Demo en vivo · agente de llamadas</div>
-    <div class="demo-title">Escucha al agente de llamadas de Anpalex</div>
-    <div class="demo-sub">Este es el mismo agente del servicio opcional. Habla en español natural y puede hacer todo esto sin que nadie de la clínica intervenga:</div>
-    <div class="demo-caps">
-      <div class="demo-cap"><span>📞</span>Recibe llamadas de pacientes nuevos</div>
-      <div class="demo-cap"><span>📅</span>Agenda y confirma citas en Dentalink</div>
-      <div class="demo-cap"><span>🔁</span>Llama a pacientes inactivos para reactivarlos</div>
-      <div class="demo-cap"><span>❓</span>Responde preguntas frecuentes de la clínica</div>
-    </div>
-    <div class="demo-call-box">
-      <div class="demo-mic-note">🎤 <strong>Necesitas micrófono</strong> — funciona en celular y PC. El navegador pedirá permiso antes de empezar.</div>
-      <button id="call-btn" onclick="toggleCall()">📞 Llamar al agente ahora</button>
-      <div id="call-status"></div>
-    </div>
-  </div>
 </section>
 
-<!-- S13: OFERTA ESPECIAL + URGENCIA -->
-<section class="section">
-  <div class="eyebrow amber">Beneficio por ser ya clientes</div>
-  <h2>Una atención especial<br>para Anpalex</h2>
-  <p class="lead">Por llevar más de un mes trabajando juntos con el bot, queremos facilitarles dar este paso.</p>
-  <div class="oferta-box">
-    <div class="oferta-eyebrow">🎁 Beneficio cliente activo</div>
-    <div class="oferta-title">25% de descuento en el primer mes de honorario</div>
-    <div class="oferta-body">Aplicable al honorario neto, no a la pauta. Es nuestro agradecimiento por la confianza. <strong>Ahorro real: $80.000 en el Básico · $172.500 en el Pro.</strong></div>
-    <div class="oferta-chips">
-      <span class="oferta-chip urgente">⏰ Válido hasta el 20 de junio</span>
-      <span class="oferta-chip">Solo al honorario neto</span>
-      <span class="oferta-chip">Sin compromisos adicionales</span>
-    </div>
-  </div>
-</section>
 
 <!-- S14: CRONOGRAMA -->
 <section class="section bg-alt">
@@ -966,8 +843,8 @@ function checkPw() {
       <div class="tl-left"><div class="tl-dot">S1</div><div class="tl-line"></div></div>
       <div class="tl-content">
         <div class="tl-week">Semana 1</div>
-        <div class="tl-title">Setup técnico — Anpalex no tiene que hacer nada</div>
-        <div class="tl-desc">Configuramos el seguimiento en Meta, las audiencias y la conexión con el bot. Generamos los anuncios iniciales con IA: personas llamativas y profesionales, para los 2 servicios elegidos.</div>
+        <div class="tl-title">Setup técnico — Anpalex no hace nada</div>
+        <div class="tl-desc">Configuramos seguimiento, audiencias y conexión con el bot. Generamos los anuncios iniciales con IA.</div>
       </div>
     </div>
     <div class="tl-item">
@@ -975,7 +852,7 @@ function checkPw() {
       <div class="tl-content">
         <div class="tl-week">Semana 2</div>
         <div class="tl-title">Campañas activas — Meta empieza a aprender</div>
-        <div class="tl-desc">Los anuncios se publican. Meta entra en su fase de aprendizaje de 7 días, que es la más importante de todo el proceso. No se toca nada hasta que termine.</div>
+        <div class="tl-desc">Los anuncios se publican. Meta entra en su fase de aprendizaje de 7 días. No se toca nada hasta que termine.</div>
       </div>
     </div>
     <div class="tl-item">
@@ -983,7 +860,7 @@ function checkPw() {
       <div class="tl-content">
         <div class="tl-week">Semana 3</div>
         <div class="tl-title">Primera optimización</div>
-        <div class="tl-desc">Cortamos lo que no convierte, escalamos lo que sí. Subimos creativos frescos para el siguiente ciclo. Los primeros pacientes ya deberían estar llegando.</div>
+        <div class="tl-desc">Cortamos lo que no convierte, escalamos lo que sí. Los primeros pacientes ya deberían estar llegando.</div>
       </div>
     </div>
     <div class="tl-item">
@@ -991,7 +868,7 @@ function checkPw() {
       <div class="tl-content">
         <div class="tl-week">Semana 4</div>
         <div class="tl-title">Primer reporte + reunión 30 minutos</div>
-        <div class="tl-desc">Cuántas personas escribieron, cuántos pacientes agendaron, cuánto costó cada uno y qué viene el mes siguiente. En el Plan Pro este análisis se repite cada 15 días.</div>
+        <div class="tl-desc">Cuántas personas escribieron, cuántos agendaron, cuánto costó cada paciente y qué viene el mes siguiente.</div>
       </div>
     </div>
   </div>
@@ -1021,7 +898,7 @@ function checkPw() {
   <div class="cta-rec-label">⭐ Recomendado para Anpalex</div>
   <h2>¿Arrancamos con<br>el <em>Plan Pro</em>?</h2>
   <p>Tienen el bot, tienen el sistema, tienen los pacientes.<br>Solo falta el combustible para que lleguen más cada mes.</p>
-  <div style="margin-bottom:12px; font-size:13px; color:#f59e0b; font-weight:600;">⏰ El 25% de descuento vence el 20 de junio</div>
+
   <div class="cta-btns">
     <a href="mailto:lukas.conejero40@gmail.com?subject=Meta Ads Anpalex - Plan Pro&body=Hola Lukas, quiero arrancar con el Plan Pro." class="btn-pro">⭐ Quiero el Plan Pro</a>
     <a href="mailto:lukas.conejero40@gmail.com?subject=Meta Ads Anpalex - Plan Basico&body=Hola Lukas, quiero arrancar con el Plan Básico." class="btn-basico">Prefiero el Plan Básico</a>
@@ -1046,80 +923,6 @@ function checkPw() {
     cerrarModal();
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
-</script>
-
-<!-- VAPI SDK — demo agente de llamadas -->
-<style>
-  #vapi-support-btn, .vapi-btn, [class*="vapi-btn"] { display:none !important; }
-</style>
-<script>
-  const VAPI_KEY  = 'fdee8a2b-cfbe-4aaf-a2d2-9b1e39fb1222';
-  const ASSISTANT = '58e92766-daa7-4fd7-b21a-978ac6d82001';
-  let vapiInst = null;
-  let callActive = false;
-
-  (function initVapi() {
-    (function(d, t) {
-      var g = document.createElement(t), s = d.getElementsByTagName(t)[0];
-      g.src = 'https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js';
-      g.defer = g.async = true;
-      s.parentNode.insertBefore(g, s);
-      g.onload = function() {
-        vapiInst = window.vapiSDK.run({
-          apiKey: VAPI_KEY,
-          assistant: ASSISTANT,
-          config: { position: 'bottom-right', offset: '-500px', width: '1px', height: '1px' }
-        });
-        vapiInst.on('call-start',   () => setStatus('connected', '🟢 Conectado · el agente está escuchando'));
-        vapiInst.on('call-end',     () => { callActive = false; resetBtn(); setStatus('', ''); });
-        vapiInst.on('speech-start', () => setStatus('connected', '🗣️ El agente está hablando...'));
-        vapiInst.on('speech-end',   () => setStatus('connected', '🟢 Conectado · el agente está escuchando'));
-        vapiInst.on('error',        (e) => { setStatus('error', '❌ ' + (e?.message || 'Error al conectar')); resetBtn(); });
-      };
-      g.onerror = function() { setStatus('error', '❌ No se pudo cargar el SDK · verifica tu conexión'); };
-    })(document, 'script');
-  })();
-
-  function setStatus(cls, msg) {
-    var el = document.getElementById('call-status');
-    if (el) { el.className = cls; el.textContent = msg; }
-  }
-  function resetBtn() {
-    var btn = document.getElementById('call-btn');
-    if (!btn) return;
-    btn.innerHTML = '📞 Llamar al agente ahora';
-    btn.classList.remove('active');
-    btn.disabled = false;
-    callActive = false;
-  }
-  async function toggleCall() {
-    if (callActive) { if (vapiInst) vapiInst.stop(); resetBtn(); return; }
-    var btn = document.getElementById('call-btn');
-    btn.disabled = true;
-    btn.innerHTML = '⏳ Conectando...';
-    setStatus('', 'Solicitando acceso al micrófono...');
-    try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch(e) {
-      setStatus('error', '❌ Sin acceso al micrófono · actívalo en la configuración del navegador');
-      resetBtn(); return;
-    }
-    if (!vapiInst) {
-      setStatus('error', '❌ SDK cargando · espera unos segundos e intenta de nuevo');
-      resetBtn(); return;
-    }
-    try {
-      setStatus('', '⏳ Iniciando llamada...');
-      await vapiInst.start(ASSISTANT);
-      callActive = true;
-      btn.innerHTML = '🔴 Finalizar llamada';
-      btn.classList.add('active');
-      btn.disabled = false;
-    } catch(e) {
-      setStatus('error', '❌ No se pudo iniciar · verifica tu conexión e intenta de nuevo');
-      resetBtn();
-    }
-  }
 </script>
 
 </body>
