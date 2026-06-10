@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Propuesta Clínica Anpalex — Conejeros IA</title>
+  <title>Meta Ads para Anpalex — Conejeros IA</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,9 +11,11 @@
       --bg:#f8fafc; --white:#ffffff; --text:#0f172a; --mid:#1e3a5f;
       --soft:#475569; --mute:#94a3b8; --mute2:#64748b;
       --cyan:#0284c7; --cyan-d:#0369a1; --cyan-l:#e0f2fe; --cyan-m:#bae6fd;
-      --navy:#0f172a; --red:#dc2626; --red-l:#fef2f2; --red-b:#fecaca;
+      --navy:#0f172a;
+      --red:#dc2626; --red-l:#fef2f2; --red-b:#fecaca;
       --amber:#d97706; --amber-l:#fffbeb; --amber-b:#fde68a;
       --green:#059669; --green-l:#ecfdf5; --green-b:#a7f3d0;
+      --purple:#7c3aed; --purple-l:#ede9fe; --purple-b:#c4b5fd;
       --border:#e2e8f0; --border-d:#cbd5e1;
     }
     body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased; }
@@ -32,193 +34,264 @@
     #pw-err-msg { font-size:13px; color:var(--red); margin-top:10px; min-height:18px; }
 
     /* ── LAYOUT ── */
-    .wrap { max-width:720px; margin:0 auto; padding:0 28px 100px; }
+    .wrap { max-width:740px; margin:0 auto; padding:0 28px 100px; }
 
     /* ── HEADER ── */
-    .header { background:var(--white); border-bottom:2px solid var(--cyan-l); padding:64px 32px 56px; text-align:center; }
-    .header-brand { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2.5px; color:var(--cyan); margin-bottom:20px; }
-    .header h1 { font-size:42px; font-weight:900; line-height:1.1; letter-spacing:-1px; color:var(--navy); margin-bottom:16px; }
-    .header h1 em { font-style:normal; color:var(--cyan-d); }
-    .header-desc { font-size:17px; color:var(--soft); line-height:1.7; max-width:520px; margin:0 auto 28px; }
+    .header { background:var(--navy); padding:72px 32px 64px; text-align:center; position:relative; overflow:hidden; }
+    .header::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(2,132,199,0.07) 1px, transparent 1px),linear-gradient(90deg,rgba(2,132,199,0.07) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
+    .header > * { position:relative; z-index:1; }
+    .header-brand { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2.5px; color:var(--cyan); margin-bottom:28px; }
+    .header h1 { font-size:38px; font-weight:900; line-height:1.1; letter-spacing:-1px; color:#ffffff; margin-bottom:18px; }
+    .header h1 em { font-style:normal; color:var(--cyan); }
+    .header-desc { font-size:17px; color:#94a3b8; line-height:1.7; max-width:520px; margin:0 auto 32px; }
+    .header-stats { display:flex; gap:0; justify-content:center; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; max-width:520px; margin:0 auto 28px; }
+    .hstat { flex:1; padding:18px 12px; text-align:center; border-right:1px solid rgba(255,255,255,.08); }
+    .hstat:last-child { border-right:none; }
+    .hstat-num { font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; color:var(--cyan); line-height:1; margin-bottom:4px; }
+    .hstat-label { font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; line-height:1.3; }
     .header-tags { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-    .tag { display:inline-flex; align-items:center; gap:5px; padding:5px 14px; border-radius:100px; font-size:13px; font-weight:600; }
-    .tag-cyan  { background:var(--cyan-l); color:var(--cyan-d); border:1px solid var(--cyan-m); }
-    .tag-green { background:var(--green-l); color:var(--green); border:1px solid var(--green-b); }
-    .tag-gray  { background:var(--bg); color:var(--soft); border:1px solid var(--border); }
+    .tag { display:inline-flex; align-items:center; gap:5px; padding:5px 14px; border-radius:100px; font-size:12px; font-weight:600; }
+    .tag-cyan  { background:rgba(2,132,199,.2); color:#7dd3fc; border:1px solid rgba(2,132,199,.3); }
+    .tag-green { background:rgba(5,150,105,.2); color:#6ee7b7; border:1px solid rgba(5,150,105,.3); }
+    .tag-gray  { background:rgba(255,255,255,.06); color:#94a3b8; border:1px solid rgba(255,255,255,.1); }
+
+    /* ── RESUMEN TOP ── */
+    .resumen-top { background:var(--cyan-l); border-bottom:1px solid var(--cyan-m); padding:28px 32px; }
+    .resumen-top .rt-inner { max-width:740px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+    .rt-item { display:flex; gap:12px; align-items:flex-start; }
+    .rt-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+    .rt-text h4 { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:2px; }
+    .rt-text p { font-size:12px; color:var(--mid); line-height:1.5; }
 
     /* ── SECTIONS ── */
     .section { background:var(--white); border-bottom:1px solid var(--border); padding:64px 32px; }
-    .section:nth-child(even) { background:var(--bg); }
+    .section.bg-alt { background:var(--bg); }
     .eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--cyan); margin-bottom:12px; }
+    .eyebrow.green { color:var(--green); }
+    .eyebrow.amber { color:var(--amber); }
+    .eyebrow.red { color:var(--red); }
     .section h2 { font-size:30px; font-weight:800; line-height:1.2; letter-spacing:-0.5px; color:var(--navy); margin-bottom:14px; }
     .section h2 em { font-style:normal; color:var(--cyan-d); }
-    .section h2 .red { color:var(--red); }
-    .lead { font-size:16px; color:var(--soft); line-height:1.75; margin-bottom:40px; max-width:580px; }
+    .section h2 .green { color:var(--green); }
+    .lead { font-size:16px; color:var(--soft); line-height:1.75; margin-bottom:36px; max-width:580px; }
     .lead strong { color:var(--mid); font-weight:600; }
 
-    /* ── BOT STATS ── */
-    .bot-intro { background:var(--cyan-l); border:1px solid var(--cyan-m); border-radius:14px; padding:24px 28px; margin-bottom:32px; font-size:15px; color:var(--mid); line-height:1.7; }
-    .bot-intro strong { color:var(--navy); }
-    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:16px; }
-    .stat-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:22px 20px; text-align:center; position:relative; overflow:hidden; }
-    .stat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
-    .stat-card.c-blue::before  { background:linear-gradient(90deg,var(--cyan-d),var(--cyan)); }
-    .stat-card.c-green::before { background:linear-gradient(90deg,#059669,#34d399); }
-    .stat-card.c-amber::before { background:linear-gradient(90deg,var(--amber),#fbbf24); }
-    .stat-num { font-family:'JetBrains Mono',monospace; font-size:38px; font-weight:700; line-height:1; margin-bottom:6px; }
-    .stat-card.c-blue  .stat-num { color:var(--cyan-d); }
-    .stat-card.c-green .stat-num { color:var(--green); }
-    .stat-card.c-amber .stat-num { color:var(--amber); }
-    .stat-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--soft); margin-bottom:4px; }
-    .stat-sub { font-size:12px; color:var(--mute); line-height:1.4; }
-    .flow-row { display:flex; align-items:center; gap:0; background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:10px; }
-    .flow-from { background:var(--cyan-l); padding:14px 20px; font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--cyan-d); flex-shrink:0; min-width:80px; text-align:center; }
-    .flow-arrow { color:var(--mute); font-size:16px; padding:0 8px; flex-shrink:0; }
-    .flow-to { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--green); min-width:70px; text-align:center; flex-shrink:0; }
-    .flow-desc { flex:1; padding:14px 20px; border-left:1px solid var(--border); }
-    .flow-main { font-size:14px; font-weight:600; color:var(--navy); }
-    .flow-sub  { font-size:12px; color:var(--mute); }
-    .flow-badge { margin-right:16px; padding:4px 12px; border-radius:100px; font-size:11px; font-weight:700; background:var(--green-l); color:var(--green); border:1px solid var(--green-b); white-space:nowrap; flex-shrink:0; }
+    /* ── FUNNEL FLOW ── */
+    .funnel { display:flex; align-items:center; gap:0; flex-wrap:wrap; margin-bottom:28px; }
+    .funnel-step { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:16px 18px; flex:1; min-width:120px; text-align:center; }
+    .funnel-step .fs-icon { font-size:22px; margin-bottom:6px; }
+    .funnel-step .fs-label { font-size:12px; font-weight:700; color:var(--navy); }
+    .funnel-step .fs-sub { font-size:11px; color:var(--mute2); margin-top:2px; }
+    .funnel-arrow { font-size:20px; color:var(--cyan-d); font-weight:700; padding:0 8px; flex-shrink:0; }
+    .funnel-unique { background:var(--cyan-l); border-color:var(--cyan-m); }
+    .funnel-unique .fs-label { color:var(--cyan-d); }
 
-    /* ── ALERTS ── */
-    .alert-box { background:var(--amber-l); border:1.5px solid var(--amber-b); border-left:5px solid var(--amber); border-radius:0 14px 14px 0; padding:28px 32px; }
-    .alert-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--amber); margin-bottom:10px; }
-    .alert-title { font-size:20px; font-weight:800; color:#7c2d12; margin-bottom:12px; line-height:1.3; }
-    .alert-body { font-size:15px; color:#92400e; line-height:1.75; }
-    .alert-body strong { color:#7c2d12; }
-    .alert-stat { display:inline-block; margin-top:14px; background:#fef3c7; border:1px solid var(--amber-b); border-radius:8px; padding:10px 16px; font-size:14px; font-weight:600; color:#78350f; }
-    .danger-box { background:var(--red-l); border:1.5px solid var(--red-b); border-left:5px solid var(--red); border-radius:0 14px 14px 0; padding:28px 32px; margin-top:28px; }
-    .danger-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--red); margin-bottom:10px; }
-    .danger-title { font-size:20px; font-weight:800; color:#7f1d1d; margin-bottom:12px; }
-    .danger-body { font-size:15px; color:#991b1b; line-height:1.75; }
-    .example-row { background:var(--white); border:1px solid var(--red-b); border-radius:10px; padding:14px 18px; margin-top:12px; display:flex; align-items:flex-start; gap:12px; }
-    .example-icon { flex-shrink:0; font-size:16px; }
-    .example-text { font-size:14px; color:#991b1b; line-height:1.6; }
-    .example-text strong { color:#7f1d1d; }
+    /* ── FEAT GRID ── */
+    .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:8px; }
+    .feat-grid.cols3 { grid-template-columns:1fr 1fr 1fr; }
+    .feat-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:22px 20px; }
+    .feat-card .fc-icon { font-size:22px; margin-bottom:10px; }
+    .feat-card h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .feat-card p { font-size:14px; color:var(--soft); line-height:1.6; }
+    .feat-card.c-cyan { border-top:3px solid var(--cyan-d); }
+    .feat-card.c-green { border-top:3px solid var(--green); }
+    .feat-card.c-amber { border-top:3px solid var(--amber); background:var(--amber-l); border:1px solid var(--amber-b); }
+    .feat-card.c-amber h3 { color:#92400e; }
+    .feat-card.c-amber p { color:#92400e; }
+    .feat-card.c-red { border-top:3px solid var(--red); background:var(--red-l); border:1px solid var(--red-b); }
+    .feat-card.c-red h3 { color:#991b1b; }
+    .feat-card.c-red p { color:#991b1b; }
 
-    /* ── RAÍZ ── */
-    .raiz-hero { background:linear-gradient(135deg,var(--cyan-l) 0%,#f0fdf4 100%); border:1.5px solid var(--cyan-m); border-radius:18px; padding:40px; margin-bottom:32px; }
-    .raiz-icon { font-size:36px; margin-bottom:16px; display:block; }
-    .raiz-hero h3 { font-size:22px; font-weight:800; color:var(--navy); margin-bottom:10px; }
-    .raiz-hero p { font-size:15px; color:var(--soft); line-height:1.75; }
-    .raiz-hero p strong { color:var(--mid); }
-    .raiz-quote { margin-top:20px; padding:16px 20px; background:rgba(255,255,255,.7); border-left:3px solid var(--cyan-d); border-radius:0 10px 10px 0; font-size:15px; font-style:italic; color:var(--soft); }
+    /* ── AD MOCKUP ── */
+    .ad-mockup-wrap { display:flex; gap:20px; align-items:flex-start; margin-bottom:28px; }
+    .ad-mockup { background:var(--white); border:1px solid var(--border); border-radius:14px; overflow:hidden; width:260px; flex-shrink:0; box-shadow:0 4px 20px rgba(0,0,0,.08); }
+    .am-header { padding:12px 14px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); }
+    .am-avatar { width:32px; height:32px; border-radius:50%; background:var(--cyan-l); display:flex; align-items:center; justify-content:center; font-size:14px; }
+    .am-name { font-size:13px; font-weight:700; color:var(--navy); }
+    .am-sponsored { font-size:11px; color:var(--mute); }
+    .am-image { background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%); height:160px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:20px; text-align:center; position:relative; overflow:hidden; }
+    .am-image::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 60% 40%,rgba(2,132,199,.25) 0%,transparent 60%); }
+    .am-image .ai-badge { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--cyan); background:rgba(2,132,199,.15); border:1px solid rgba(2,132,199,.3); padding:3px 8px; border-radius:100px; position:relative; z-index:1; }
+    .am-image .ai-headline { font-size:16px; font-weight:800; color:#fff; line-height:1.2; position:relative; z-index:1; }
+    .am-image .ai-sub { font-size:11px; color:#94a3b8; position:relative; z-index:1; }
+    .am-image .ai-price { font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; color:var(--cyan); position:relative; z-index:1; }
+    .am-footer { padding:10px 14px; background:var(--bg); border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .am-cta { font-size:12px; font-weight:700; color:var(--cyan-d); }
+    .am-action { background:var(--cyan-d); color:#fff; font-size:11px; font-weight:700; padding:5px 12px; border-radius:6px; }
+    .ad-mockup-text { flex:1; }
+    .ad-mockup-text h3 { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+    .ad-mockup-text p { font-size:14px; color:var(--soft); line-height:1.7; margin-bottom:12px; }
+    .ad-mockup-text .speed-row { display:flex; gap:8px; align-items:center; font-size:13px; color:var(--mid); padding:8px 12px; background:var(--cyan-l); border-radius:8px; margin-bottom:8px; }
+    .ad-mockup-text .speed-row strong { color:var(--cyan-d); }
 
-    /* ── AREAS ── */
-    .area-block { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:28px 32px; margin-bottom:16px; }
-    .area-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
-    .area-icon-wrap { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
-    .area-icon-wrap.blue  { background:var(--cyan-l); }
-    .area-icon-wrap.amber { background:var(--amber-l); }
-    .area-icon-wrap.red   { background:var(--red-l); }
-    .area-icon-wrap.green { background:var(--green-l); }
-    .area-title { font-size:18px; font-weight:800; color:var(--navy); }
-    .area-title.blue  { color:var(--cyan-d); }
-    .area-title.amber { color:#92400e; }
-    .area-title.red   { color:var(--red); }
-    .area-title.green { color:var(--green); }
-    .area-subtitle { font-size:13px; color:var(--mute); }
-    .area-qs { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .area-qs li { font-size:15px; color:var(--soft); line-height:1.6; display:flex; align-items:flex-start; gap:10px; }
-    .area-qs li::before { content:'→'; color:var(--cyan); font-weight:700; flex-shrink:0; font-size:13px; margin-top:3px; }
+    /* ── PLAN SEPARATOR ── */
+    .plan-sep-banner { padding:44px 32px; text-align:center; }
+    .plan-sep-banner.basico { background:linear-gradient(135deg,#ecfdf5,#d1fae5); border-bottom:1px solid var(--green-b); border-top:2px solid var(--green); }
+    .plan-sep-banner.pro { background:linear-gradient(135deg,var(--navy),#1e3a5f); border-bottom:1px solid #334155; border-top:2px solid var(--cyan-d); }
+    .plan-sep-banner .plan-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:3px; margin-bottom:10px; }
+    .plan-sep-banner.basico .plan-num { color:var(--green); }
+    .plan-sep-banner.pro .plan-num { color:var(--cyan); }
+    .plan-sep-banner h2 { font-size:36px; font-weight:900; letter-spacing:-1px; margin-bottom:8px; }
+    .plan-sep-banner.basico h2 { color:#065f46; }
+    .plan-sep-banner.pro h2 { color:#ffffff; }
+    .plan-sep-banner p { font-size:15px; max-width:520px; margin:0 auto; }
+    .plan-sep-banner.basico p { color:#047857; }
+    .plan-sep-banner.pro p { color:#94a3b8; }
+    .plan-sep-outcome { display:inline-block; margin-top:14px; padding:8px 20px; border-radius:100px; font-size:14px; font-weight:700; }
+    .plan-sep-banner.basico .plan-sep-outcome { background:var(--green); color:#fff; }
+    .plan-sep-banner.pro .plan-sep-outcome { background:var(--cyan-d); color:#fff; }
+
+    /* ── PRICING CARD ── */
+    .pricing-card { background:var(--navy); border-radius:22px; padding:48px 40px; position:relative; overflow:hidden; }
+    .pricing-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+    .pricing-card.basico::before { background:linear-gradient(90deg,var(--green),#34d399); }
+    .pricing-card.pro::before { background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#7c3aed); }
+    .pricing-card .pc-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:10px; text-align:center; }
+    .pricing-card.basico .pc-eyebrow { color:#34d399; }
+    .pricing-card.pro .pc-eyebrow { color:var(--cyan); }
+    .pricing-card .pc-main { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+    .pc-left { text-align:center; }
+    .pricing-card .pc-amount { font-family:'JetBrains Mono',monospace; font-size:56px; font-weight:700; line-height:1; letter-spacing:-2px; margin-bottom:4px; }
+    .pricing-card.basico .pc-amount { color:#34d399; }
+    .pricing-card.pro .pc-amount { color:var(--cyan); }
+    .pricing-card .pc-period { font-size:13px; color:#64748b; margin-bottom:14px; }
+    .pricing-card .pc-setup-note { font-size:12px; color:#475569; padding:10px 14px; background:rgba(255,255,255,.04); border-radius:8px; border:1px solid rgba(255,255,255,.06); }
+    .pricing-card .pc-setup-note strong { color:#94a3b8; }
+    .pc-right { display:flex; flex-direction:column; gap:8px; }
+    .pc-row { display:flex; justify-content:space-between; align-items:center; padding:9px 12px; border-radius:8px; font-size:14px; }
+    .pc-row.muted { color:#64748b; }
+    .pc-row.muted .pr-val { color:#475569; }
+    .pc-row.highlighted { background:rgba(255,255,255,.05); }
+    .pc-row.highlighted.basico .pr-label { color:#f1f5f9; font-weight:600; }
+    .pc-row.highlighted.basico .pr-val { color:#34d399; font-weight:700; }
+    .pc-row.highlighted.pro .pr-label { color:#f1f5f9; font-weight:600; }
+    .pc-row.highlighted.pro .pr-val { color:var(--cyan); font-weight:700; }
+    .pc-row .pr-label { color:#94a3b8; }
+    .pc-row .pr-val { color:#f1f5f9; font-weight:600; }
+    .pc-total-box { margin-top:10px; padding:16px 18px; border-radius:12px; }
+    .pc-total-box.basico { background:rgba(52,211,153,.1); border:1px solid rgba(52,211,153,.2); }
+    .pc-total-box.pro { background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.2); }
+    .pc-total-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+    .pc-total-box.basico .pc-total-label { color:#34d399; }
+    .pc-total-box.pro .pc-total-label { color:var(--cyan); }
+    .pc-total-val { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; }
+    .pc-total-box.basico .pc-total-val { color:#34d399; }
+    .pc-total-box.pro .pc-total-val { color:var(--cyan); }
+    .pc-total-sub { font-size:12px; color:#64748b; margin-top:3px; }
+
+    /* ── ROI BOX ── */
+    .roi-box { background:var(--green-l); border:1.5px solid var(--green-b); border-radius:14px; padding:24px 28px; margin-top:20px; }
+    .roi-box .roi-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--green); margin-bottom:10px; }
+    .roi-box h3 { font-size:16px; font-weight:800; color:#065f46; margin-bottom:6px; }
+    .roi-box p { font-size:14px; color:#047857; line-height:1.65; }
+    .roi-box p strong { color:#065f46; }
+
+    /* ── METRIC LIST ── */
+    .metric-list { display:flex; flex-direction:column; gap:10px; }
+    .metric-item { display:flex; gap:14px; align-items:flex-start; background:var(--white); border:1px solid var(--border); border-radius:12px; padding:14px 18px; }
+    .metric-item .mi-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+    .metric-item .mi-text { font-size:14px; color:var(--soft); line-height:1.6; }
+    .metric-item .mi-text strong { color:var(--navy); }
+
+    /* ── GARANTIA SECTION ── */
+    .garantia-block { background:var(--navy); border-radius:20px; padding:48px 40px; text-align:center; position:relative; overflow:hidden; }
+    .garantia-block::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--green),#34d399,var(--cyan)); }
+    .garantia-block .gb-icon { font-size:48px; margin-bottom:16px; }
+    .garantia-block .gb-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2.5px; color:#34d399; margin-bottom:12px; }
+    .garantia-block h2 { font-size:28px; font-weight:900; color:#fff; margin-bottom:14px; line-height:1.2; }
+    .garantia-block p { font-size:16px; color:#94a3b8; line-height:1.75; max-width:480px; margin:0 auto 24px; }
+    .garantia-block p strong { color:#f1f5f9; }
+    .gb-conditions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .gb-cond { padding:8px 18px; border-radius:100px; font-size:13px; font-weight:700; background:rgba(52,211,153,.1); color:#34d399; border:1px solid rgba(52,211,153,.25); }
+
+    /* ── ATTR FLOW ── */
+    .attr-flow { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+    .attr-step { display:grid; grid-template-columns:80px 1fr 160px; gap:16px; align-items:center; padding:14px 18px; background:var(--white); border:1px solid var(--border); border-radius:12px; }
+    .attr-step.highlight { background:var(--green-l); border-color:var(--green-b); }
+    .attr-day { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:var(--cyan-d); }
+    .attr-step.highlight .attr-day { color:var(--green); }
+    .attr-event { font-size:14px; color:var(--soft); line-height:1.5; }
+    .attr-ltv { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700; color:var(--navy); text-align:right; }
+    .attr-step.highlight .attr-ltv { color:var(--green); font-size:16px; }
+
+    /* ── COMPARE TABLE ── */
+    .compare-wrap { overflow-x:auto; margin-bottom:28px; }
+    .compare-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--white); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    .compare-table th, .compare-table td { padding:12px 16px; font-size:14px; border-bottom:1px solid var(--border); }
+    .compare-table th { background:var(--bg); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--mute2); }
+    .compare-table th.th-basico { color:var(--green); }
+    .compare-table th.th-pro { color:var(--cyan-d); }
+    .compare-table tr:last-child td { border-bottom:none; }
+    .compare-table .feat-col { font-weight:600; color:var(--navy); }
+    .compare-table .col-center { text-align:center; }
+    .compare-table .chk-yes { color:var(--green); font-weight:700; }
+    .compare-table .chk-no { color:var(--mute); }
+    .compare-table .row-total td { background:var(--cyan-l); }
+    .compare-table .row-total .feat-col { color:var(--navy); font-weight:700; }
+
+    /* ── QUOTE ── */
+    .quote-box { border-left:4px solid var(--cyan-d); border-radius:0 14px 14px 0; padding:22px 26px; margin:24px 0; }
+    .quote-box.cyan { background:var(--cyan-l); }
+    .quote-box.amber { background:var(--amber-l); border-left-color:var(--amber); }
+    .quote-box.green { background:var(--green-l); border-left-color:var(--green); }
+    .quote-box.navy { background:#0f172a; border-left-color:var(--cyan-d); }
+    .quote-box p { font-size:16px; color:var(--mid); line-height:1.7; font-style:italic; }
+    .quote-box p strong { font-style:normal; color:var(--navy); }
+    .quote-box.amber p { color:#92400e; }
+    .quote-box.amber p strong { color:#78350f; }
+    .quote-box.green p { color:#065f46; }
+    .quote-box.navy p { color:#94a3b8; font-style:normal; font-size:17px; font-weight:500; }
+    .quote-box.navy p strong { color:#f1f5f9; }
+
+    /* ── OFERTA ── */
+    .oferta-box { background:var(--amber-l); border:1.5px solid var(--amber-b); border-left:5px solid var(--amber); border-radius:0 16px 16px 0; padding:32px 36px; }
+    .oferta-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--amber); margin-bottom:10px; }
+    .oferta-title { font-size:22px; font-weight:800; color:#78350f; margin-bottom:10px; }
+    .oferta-body { font-size:15px; color:#92400e; line-height:1.75; margin-bottom:14px; }
+    .oferta-body strong { color:#78350f; }
+    .oferta-chips { display:flex; gap:10px; flex-wrap:wrap; }
+    .oferta-chip { padding:7px 16px; border-radius:8px; background:#fef3c7; border:1px solid var(--amber-b); font-size:13px; font-weight:700; color:#78350f; }
+    .oferta-chip.urgente { background:var(--amber); color:#fff; border-color:var(--amber); }
+
+    /* ── FEE BOX ── */
+    .fee-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; }
+    .fee-box { border-radius:12px; padding:22px 20px; }
+    .fee-box.cyan { background:var(--cyan-l); border:1px solid var(--cyan-m); }
+    .fee-box.green { background:var(--green-l); border:1px solid var(--green-b); }
+    .fee-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; }
+    .fee-box.cyan .fee-label { color:var(--cyan-d); }
+    .fee-box.green .fee-label { color:var(--green); }
+    .fee-box h3 { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .fee-box p { font-size:13px; color:var(--soft); line-height:1.6; }
+    .fee-box p strong { color:var(--mid); }
 
     /* ── TIMELINE ── */
-    .timeline { display:flex; flex-direction:column; }
-    .tl-item { display:flex; gap:22px; padding-bottom:36px; }
+    .tl { display:flex; flex-direction:column; }
+    .tl-item { display:flex; gap:22px; padding-bottom:30px; }
     .tl-item:last-child { padding-bottom:0; }
     .tl-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:42px; }
     .tl-dot { width:42px; height:42px; border-radius:50%; background:var(--cyan-l); border:2px solid var(--cyan-m); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-family:'JetBrains Mono',monospace; color:var(--cyan-d); }
     .tl-line { flex:1; width:2px; background:var(--border); margin-top:6px; }
     .tl-item:last-child .tl-line { display:none; }
     .tl-content { padding-top:8px; flex:1; }
-    .tl-days { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--cyan); margin-bottom:4px; }
-    .tl-title { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:6px; }
-    .tl-desc { font-size:15px; color:var(--soft); line-height:1.7; }
-    .tl-desc strong { color:var(--mid); }
-    .entregable-box { background:var(--cyan-l); border:1px solid var(--cyan-m); border-radius:14px; padding:24px 28px; margin-top:36px; display:flex; gap:18px; align-items:center; }
-    .entregable-icon { font-size:28px; flex-shrink:0; }
-    .entregable-title { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px; }
-    .entregable-sub { font-size:14px; color:var(--soft); line-height:1.6; }
-
-    /* ── PLANES ── */
-    .planes-note { background:var(--bg); border:1px solid var(--border-d); border-radius:12px; padding:18px 22px; font-size:14px; color:var(--soft); margin-bottom:28px; line-height:1.7; }
-    .planes-note strong { color:var(--navy); }
-    .plan-card { background:var(--white); border:1.5px solid var(--border); border-radius:20px; padding:36px 36px 32px; margin-bottom:20px; position:relative; overflow:hidden; }
-    .plan-card.featured { border-color:var(--cyan-d); }
-    .plan-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--border); }
-    .plan-card.featured::before { background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#059669); }
-    .plan-badge { position:absolute; top:20px; right:20px; padding:5px 14px; border-radius:100px; font-size:12px; font-weight:700; background:var(--cyan-d); color:#fff; }
-    .plan-tier { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--mute); margin-bottom:6px; }
-    .plan-card.featured .plan-tier { color:var(--cyan); }
-    .plan-name { font-size:24px; font-weight:800; color:var(--navy); margin-bottom:6px; }
-    .plan-tagline { font-size:15px; color:var(--soft); margin-bottom:24px; }
-    .plan-pricing { display:flex; background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:28px; }
-    .plan-card.featured .plan-pricing { background:var(--cyan-l); border-color:var(--cyan-m); }
-    .price-col { flex:1; padding:18px 20px; text-align:center; }
-    .price-col + .price-col { border-left:1px solid var(--border); }
-    .plan-card.featured .price-col + .price-col { border-color:var(--cyan-m); }
-    .price-col-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--mute); margin-bottom:4px; }
-    .price-col-value { font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:700; color:var(--navy); }
-    .plan-card.featured .price-col-value { color:var(--cyan-d); }
-    .price-col-sub { font-size:12px; color:var(--mute); margin-top:3px; }
-    .plan-features-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--mute); margin-bottom:14px; }
-    .plan-features { list-style:none; display:flex; flex-direction:column; gap:11px; }
-    .plan-features li { font-size:15px; color:var(--soft); display:flex; align-items:flex-start; gap:11px; line-height:1.55; }
-    .chk { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--green-l); border:1.5px solid var(--green-b); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--green); margin-top:1px; }
-    .chk-pro { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--cyan-l); border:1.5px solid var(--cyan-m); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--cyan-d); margin-top:1px; }
-    .plan-sep { border:none; border-top:1px solid var(--border); margin:14px 0; }
-    .plan-pro-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--cyan); margin-bottom:12px; }
-
-    /* ── DEMO VAPI ── */
-    .demo-section { background:var(--navy); border-radius:20px; padding:40px 36px; margin:0 0 20px; position:relative; overflow:hidden; }
-    .demo-section::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#34d399); }
-    .demo-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--cyan); margin-bottom:12px; }
-    .demo-title { font-size:24px; font-weight:800; color:#fff; margin-bottom:8px; }
-    .demo-sub { font-size:15px; color:#94a3b8; margin-bottom:28px; line-height:1.6; }
-    .demo-caps { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:28px; }
-    .demo-cap { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:10px; font-size:14px; color:#cbd5e1; }
-    .demo-cap span { font-size:18px; }
-    .demo-call-box { background:rgba(56,189,248,.08); border:1.5px solid rgba(56,189,248,.25); border-radius:14px; padding:24px 28px; text-align:center; }
-    .demo-mic-note { font-size:13px; color:#64748b; margin-bottom:20px; }
-    .demo-mic-note strong { color:#94a3b8; }
-    #call-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:var(--cyan-d); color:#fff; font-size:16px; font-weight:700; font-family:'Inter',sans-serif; border:none; border-radius:12px; cursor:pointer; transition:background .2s; }
-    #call-btn:hover { background:#0284c7; }
-    #call-btn.active { background:#dc2626; }
-    #call-btn:disabled { opacity:.5; cursor:not-allowed; }
-    #call-status { margin-top:14px; font-size:14px; color:#64748b; min-height:20px; }
-    #call-status.connected { color:#34d399; font-weight:600; }
-    #call-status.error { color:#f87171; }
-    .demo-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(52,211,153,.12); border:1px solid rgba(52,211,153,.25); color:#34d399; font-size:12px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:20px; }
-
-    /* ── AUDIT PRICE ── */
-    .audit-card { background:var(--navy); border-radius:22px; padding:52px 44px; text-align:center; position:relative; overflow:hidden; }
-    .audit-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#34d399); }
-    .audit-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--cyan); margin-bottom:14px; }
-    .audit-title { font-size:28px; font-weight:900; color:#fff; margin-bottom:8px; letter-spacing:-0.5px; }
-    .audit-sub { font-size:15px; color:#94a3b8; margin-bottom:36px; line-height:1.7; }
-    .price-display { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:8px; flex-wrap:wrap; }
-    .price-old { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:600; color:#475569; text-decoration:line-through; }
-    .price-new { font-family:'JetBrains Mono',monospace; font-size:54px; font-weight:700; color:var(--cyan); line-height:1; letter-spacing:-1px; }
-    .price-note { font-size:14px; color:#64748b; margin-bottom:32px; }
-    .price-note strong { color:#34d399; }
-    .pay-opts { display:flex; gap:14px; justify-content:center; margin-bottom:32px; flex-wrap:wrap; }
-    .pay-opt { background:#1e293b; border:1px solid #334155; border-radius:14px; padding:18px 22px; text-align:center; flex:1; min-width:160px; max-width:200px; }
-    .pay-opt.main { border-color:#34d399; background:rgba(52,211,153,.08); }
-    .pay-opt-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#64748b; margin-bottom:6px; }
-    .pay-opt.main .pay-opt-label { color:#34d399; }
-    .pay-opt-price { font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; color:#fff; margin-bottom:4px; }
-    .pay-opt.main .pay-opt-price { color:#34d399; }
-    .pay-opt-sub { font-size:12px; color:#64748b; line-height:1.5; }
-    .audit-chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
-    .audit-chips span { font-size:13px; padding:5px 14px; border-radius:100px; background:rgba(56,189,248,.1); color:var(--cyan); border:1px solid rgba(56,189,248,.2); }
+    .tl-week { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--cyan); margin-bottom:4px; }
+    .tl-title { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+    .tl-desc { font-size:14px; color:var(--soft); line-height:1.65; }
 
     /* ── CTA ── */
-    .cta-section { background:var(--white); padding:72px 32px; text-align:center; border-top:1px solid var(--border); }
-    .cta-section h2 { font-size:34px; font-weight:900; color:var(--navy); margin-bottom:14px; letter-spacing:-0.5px; }
-    .cta-section h2 em { font-style:normal; color:var(--cyan-d); }
-    .cta-section p { font-size:16px; color:var(--soft); margin-bottom:36px; line-height:1.7; }
-    .cta-contact { font-size:14px; color:var(--mute); line-height:2; }
-    .cta-contact strong { color:var(--soft); }
+    .cta-section { background:var(--navy); padding:72px 32px; text-align:center; position:relative; overflow:hidden; }
+    .cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(2,132,199,.12) 0%,transparent 60%); }
+    .cta-section > * { position:relative; z-index:1; }
+    .cta-section h2 { font-size:34px; font-weight:900; color:#fff; margin-bottom:14px; letter-spacing:-0.5px; }
+    .cta-section h2 em { font-style:normal; color:var(--cyan); }
+    .cta-section p { font-size:16px; color:#94a3b8; margin-bottom:36px; line-height:1.7; }
+    .cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
+    .btn-pro { display:inline-block; padding:17px 36px; border-radius:12px; font-size:16px; font-weight:800; background:linear-gradient(135deg,var(--cyan-d),var(--cyan)); color:#fff; text-decoration:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; box-shadow:0 4px 20px rgba(2,132,199,.4); }
+    .btn-basico { display:inline-block; padding:15px 28px; border-radius:12px; font-size:14px; font-weight:700; background:rgba(255,255,255,.07); color:#94a3b8; text-decoration:none; border:1px solid rgba(255,255,255,.12); cursor:pointer; font-family:'Inter',sans-serif; }
+    .btn-dudas { padding:12px 22px; border-radius:10px; font-size:13px; font-weight:700; font-family:'Inter',sans-serif; border:1px solid rgba(245,158,11,.3); background:rgba(245,158,11,.1); color:#fbbf24; cursor:pointer; }
+    .cta-contact { font-size:13px; color:#475569; line-height:2; }
+    .cta-contact strong { color:#64748b; }
+    .cta-rec-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--cyan); margin-bottom:10px; }
 
     /* ── MODAL ── */
     .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center; padding:20px; }
@@ -232,49 +305,43 @@
     .btn-ws { flex:1; padding:13px 20px; background:#25d366; color:#fff; font-size:15px; font-weight:700; border:none; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Inter',sans-serif; }
     .btn-cancel { padding:13px 18px; background:var(--bg); color:var(--soft); font-size:14px; font-weight:600; border:1px solid var(--border); border-radius:10px; cursor:pointer; font-family:'Inter',sans-serif; }
 
-    /* ── POPUP 60s ── */
-    #demo-popup { display:none; position:fixed; bottom:24px; right:24px; z-index:300; background:var(--navy); border:1.5px solid rgba(56,189,248,.3); border-radius:16px; padding:20px 22px; width:280px; box-shadow:0 8px 40px rgba(0,0,0,.3); animation:slide-up .4s ease; }
-    #demo-popup.show { display:block; }
-    @keyframes slide-up { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
-    #demo-popup .pop-title { font-size:15px; font-weight:800; color:#fff; margin-bottom:6px; }
-    #demo-popup .pop-sub { font-size:13px; color:#94a3b8; margin-bottom:14px; line-height:1.5; }
-    #demo-popup .pop-btns { display:flex; gap:8px; }
-    #demo-popup .pop-go { flex:1; padding:9px; background:var(--cyan-d); color:#fff; font-size:13px; font-weight:700; border:none; border-radius:8px; cursor:pointer; font-family:'Inter',sans-serif; }
-    #demo-popup .pop-close { padding:9px 12px; background:rgba(255,255,255,.08); color:#94a3b8; font-size:13px; border:none; border-radius:8px; cursor:pointer; font-family:'Inter',sans-serif; }
-
-    @media (max-width:580px) {
+    @media (max-width:620px) {
+      .header h1 { font-size:26px; }
+      .header-stats { flex-wrap:wrap; }
+      .hstat { min-width:calc(50% - 1px); }
+      .resumen-top .rt-inner { grid-template-columns:1fr; gap:14px; }
       .wrap { padding:0 16px 80px; }
-      .header { padding:48px 20px 40px; }
-      .header h1 { font-size:30px; }
       .section { padding:48px 20px; }
-      .stats-grid { grid-template-columns:repeat(2,1fr); }
-      .demo-caps { grid-template-columns:1fr; }
-      .plan-pricing { flex-direction:column; }
-      .price-col + .price-col { border-left:none; border-top:1px solid var(--border); }
-      .audit-card { padding:36px 20px; }
-      .price-new { font-size:40px; }
+      .feat-grid, .feat-grid.cols3, .fee-grid { grid-template-columns:1fr; }
+      .funnel { flex-direction:column; align-items:stretch; }
+      .funnel-arrow { text-align:center; padding:4px 0; transform:rotate(90deg); }
+      .pricing-card .pc-main { grid-template-columns:1fr; }
+      .attr-step { grid-template-columns:60px 1fr; }
+      .attr-ltv { display:none; }
+      .compare-table th, .compare-table td { padding:8px 10px; font-size:12px; }
+      .ad-mockup-wrap { flex-direction:column; }
+      .ad-mockup { width:100%; }
+      .real-gallery { grid-template-columns:1fr !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ PASSWORD GATE ══ -->
+<!-- PASSWORD GATE -->
 <div id="pw-gate">
   <div id="pw-box">
     <div class="pw-logo">🦷</div>
-    <h2>Propuesta Clínica Anpalex</h2>
-    <p>Este documento es privado.<br>Ingresa la contraseña para continuar.</p>
+    <h2>Propuesta Meta Ads</h2>
+    <p>Clínica Anpalex · Conejeros IA<br>Ingresa la contraseña para continuar.</p>
     <input id="pw-input" type="password" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPw()">
     <button id="pw-btn" onclick="checkPw()">Acceder →</button>
     <div id="pw-err-msg"></div>
   </div>
 </div>
-
 <script>
 function checkPw() {
   if (document.getElementById('pw-input').value === 'anpalex123') {
     document.getElementById('pw-gate').style.display = 'none';
-    startTimers();
   } else {
     var inp = document.getElementById('pw-input');
     inp.classList.add('err');
@@ -285,203 +352,584 @@ function checkPw() {
 }
 </script>
 
-<div class="wrap">
-
-<!-- ══ HEADER ══ -->
+<!-- HEADER -->
 <header class="header">
-  <div class="header-brand">🦷 Conejeros IA · Clínica Anpalex</div>
-  <h1>Lo que logramos.<br><em>Lo que sigue.</em></h1>
-  <p class="header-desc">Un mes de resultados reales, una auditoría completa y el plan para que Anpalex crezca de forma sostenida.</p>
+  <div class="header-brand">🎯 Conejeros IA · Clínica Anpalex</div>
+  <h1>Pacientes nuevos cada mes,<br><em>medidos desde el anuncio hasta la silla.</em></h1>
+  <p class="header-desc">Ya automatizamos 449 conversaciones de Anpalex con 84.9% de respuesta. Este es el siguiente paso: traer más pacientes con Meta Ads y cerrarlos con el bot que ya tienen.</p>
+  <div class="header-stats">
+    <div class="hstat"><div class="hstat-num">449</div><div class="hstat-label">Conversaciones<br>automatizadas</div></div>
+    <div class="hstat"><div class="hstat-num">84.9%</div><div class="hstat-label">Tasa de<br>respuesta</div></div>
+    <div class="hstat"><div class="hstat-num">102</div><div class="hstat-label">Citas confirmadas<br>sin intervención</div></div>
+    <div class="hstat"><div class="hstat-num">6</div><div class="hstat-label">Citas creadas<br>solas por el bot</div></div>
+  </div>
   <div class="header-tags">
     <span class="tag tag-cyan">Para: Masiel</span>
-    <span class="tag tag-green">● Bot activo desde abril 2026</span>
+    <span class="tag tag-green">● Sistema activo desde abril 2026</span>
     <span class="tag tag-gray">Junio 2026</span>
   </div>
 </header>
 
-<!-- ══ S1 RESULTADOS ══ -->
-<section class="section">
-  <div class="eyebrow">Paso 1 · Lo que ya hicimos juntos</div>
-  <h2>33 días de sistema activo.<br><em>Esto es lo que produjo.</em></h2>
-  <div class="bot-intro">
-    En abril instalamos un sistema de IA conectado al WhatsApp de la clínica y a Dentalink.
-    <strong>Sin que Daniela tuviera que hacer nada manualmente</strong>, el sistema atendió pacientes,
-    envió recordatorios, hizo seguimiento post-atención y reactivó pacientes inactivos — las 24 horas, los 7 días.
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card c-blue"><div class="stat-num">449</div><div class="stat-label">Conversaciones</div><div class="stat-sub">Pacientes atendidos por el sistema</div></div>
-    <div class="stat-card c-green"><div class="stat-num">102</div><div class="stat-label">Confirmaciones</div><div class="stat-sub">Pacientes que confirmaron su cita automáticamente</div></div>
-    <div class="stat-card c-blue"><div class="stat-num">237</div><div class="stat-label">Recordatorios</div><div class="stat-sub">Enviados solos, sin intervención manual</div></div>
-    <div class="stat-card c-green"><div class="stat-num">106</div><div class="stat-label">Seguimientos</div><div class="stat-sub">Post-atención · 84.9% de respuesta</div></div>
-    <div class="stat-card c-amber"><div class="stat-num">88</div><div class="stat-label">Reactivaciones</div><div class="stat-sub">Pacientes inactivos contactados</div></div>
-    <div class="stat-card c-green"><div class="stat-num">6</div><div class="stat-label">Citas creadas</div><div class="stat-sub">Bot agendó solo, sin que nadie llamara</div></div>
-  </div>
-  <div style="margin-top:28px;">
-    <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mute);margin-bottom:14px;">Cómo fluyó cada grupo</div>
-    <div class="flow-row"><div class="flow-from">34</div><div class="flow-arrow">→</div><div class="flow-to">6</div><div class="flow-desc"><div class="flow-main">Citas creadas de cero por el bot</div><div class="flow-sub">Buscó horario, el paciente eligió, bot creó la cita en Dentalink</div></div><div class="flow-badge">100% automático</div></div>
-    <div class="flow-row"><div class="flow-from">237</div><div class="flow-arrow">→</div><div class="flow-to">102</div><div class="flow-desc"><div class="flow-main">Pacientes confirmaron asistencia</div><div class="flow-sub">Respondieron "sí confirmo" sin que nadie llamara</div></div><div class="flow-badge">0 llamadas manuales</div></div>
-    <div class="flow-row"><div class="flow-from">106</div><div class="flow-arrow">→</div><div class="flow-to">90</div><div class="flow-desc"><div class="flow-main">Respondieron el seguimiento post-atención</div><div class="flow-sub">84.9% de tasa de respuesta</div></div><div class="flow-badge">84.9% respuesta</div></div>
-  </div>
-</section>
-
-<!-- ══ S2 ALERTA ══ -->
-<section class="section">
-  <div class="eyebrow">El problema más común</div>
-  <h2>Por qué muchas clínicas <span class="red">no logran crecer</span><br>aunque invierten en tecnología</h2>
-  <div class="alert-box">
-    <div class="alert-eyebrow">⚠️ Patrón que se repite</div>
-    <div class="alert-title">"Cambiamos de aplicación, contratamos una agencia, y seguimos igual"</div>
-    <div class="alert-body">La mayoría de las clínicas cae en el mismo ciclo: instalan una herramienta nueva, no ven resultados en 2 meses, la cambian por otra. El problema no son las herramientas. <strong>El problema es mejorar un área sin entender las otras.</strong> Si llegas más pacientes pero el proceso de atención está roto, el marketing solo amplifica el caos.</div>
-    <div class="alert-stat">📊 Las empresas que diagnostican antes de implementar tienen 3 veces más probabilidad de ver resultados en los primeros 90 días</div>
-  </div>
-  <div class="danger-box">
-    <div class="danger-eyebrow">🚨 El error más caro</div>
-    <div class="danger-title">Mejorar solo una área sin considerar las otras</div>
-    <div class="danger-body">Cada área de la clínica está conectada. Tocar una sin entender las demás puede empeorar el resultado global.</div>
-    <div class="example-row"><div class="example-icon">📣</div><div class="example-text"><strong>Marketing sin Ventas lista:</strong> 60 consultas nuevas por WhatsApp. Si el proceso no está preparado, son 60 oportunidades perdidas. A $80.000 por consulta: <strong>casi $5 millones evaporados antes de llegar.</strong></div></div>
-    <div class="example-row"><div class="example-icon">⚙️</div><div class="example-text"><strong>Operaciones sin Post-venta:</strong> La clínica funciona perfecto internamente, pero nadie hace seguimiento. El paciente se va feliz y vuelve a la clínica del frente porque esa sí le mandó un WhatsApp.</div></div>
-    <div class="example-row"><div class="example-icon">💬</div><div class="example-text"><strong>Ventas sin Operaciones auditada:</strong> Más pacientes agendando, más no-shows también. La agenda se llena de horas vacías. <strong>Más volumen, peores resultados.</strong></div></div>
-  </div>
-</section>
-
-<!-- ══ S3 MÉTODO RAÍZ ══ -->
-<section class="section">
-  <div class="eyebrow">Nuestra metodología</div>
-  <h2>El <em>Método Raíz</em></h2>
-  <p class="lead">Por eso no proponemos nada sin diagnóstico previo. <strong>Primero entendemos cómo funciona realmente la clínica, con datos, no con suposiciones.</strong> Después diseñamos la estrategia.</p>
-  <div class="raiz-hero">
-    <span class="raiz-icon">🌱</span>
-    <h3>Todo crecimiento sostenible viene de la raíz</h3>
-    <p>Antes de instalar un solo sistema nuevo, auditamos las 4 áreas clave de tu clínica. <strong>¿Dónde se pierde tiempo? ¿Dónde se pierde plata? ¿Qué áreas están desconectadas?</strong> Solo con esas respuestas en mano diseñamos la estrategia exacta para Anpalex.</p>
-    <div class="raiz-quote">"Un árbol con raíces débiles puede crecer un poco, pero cuando viene el viento, se cae. Nos aseguramos de que las raíces estén sanas antes de que el árbol suba."</div>
-  </div>
-</section>
-
-<!-- ══ S4 LAS 4 ÁREAS ══ -->
-<section class="section">
-  <div class="eyebrow">La auditoría</div>
-  <h2>4 áreas, <em>análisis profundo</em></h2>
-  <p class="lead">En cada área hacemos preguntas concretas con datos reales. Si no podemos responderlas con números, no proponemos nada.</p>
-
-  <div class="area-block">
-    <div class="area-header"><div class="area-icon-wrap blue">📣</div><div><div class="area-title blue">Marketing · Estrategia de captación</div><div class="area-subtitle">Cómo atraer pacientes nuevos de forma inteligente</div></div></div>
-    <ul class="area-qs">
-      <li>Tomáslizamos los anuncios de la competencia: qué servicios promueven, con qué mensajes y precios, para diseñar una estrategia diferenciada.</li>
-      <li>Identificamos qué servicios son más rentables y construimos la estrategia de captación alrededor de ellos.</li>
-      <li>Definimos qué le conviene entregar a Anpalex según su capacidad, sus dentistas y su agenda, antes de activar cualquier campaña.</li>
-      <li>Diseñamos el embudo completo: cómo llega el paciente nuevo, qué ve primero, cómo agenda y cómo se convierte en recurrente.</li>
-    </ul>
-  </div>
-
-  <div class="area-block">
-    <div class="area-header"><div class="area-icon-wrap amber">💬</div><div><div class="area-title amber">Ventas · Flujo de conversión</div><div class="area-subtitle">Qué pasa desde que el paciente consulta hasta que agenda</div></div></div>
-    <ul class="area-qs">
-      <li>Tomáslizamos el flujo completo con la secretaria y la administradora para entender cada paso desde la primera consulta hasta la cita confirmada.</li>
-      <li>Identificamos en qué momento exacto se pierden los pacientes que consultan pero no agendan.</li>
-      <li>Revisamos qué pasa fuera del horario de atención y cuántas oportunidades se están perdiendo en ese tiempo muerto.</li>
-      <li>Mapeamos cuánto demora el proceso y dónde hay fricción que se puede eliminar.</li>
-    </ul>
-  </div>
-
-  <div class="area-block">
-    <div class="area-header"><div class="area-icon-wrap red">⚙️</div><div><div class="area-title red">Operaciones · Flujo interno</div><div class="area-subtitle">Análisis de 7 días con el equipo real de la clínica</div></div></div>
-    <ul class="area-qs">
-      <li>Sesiones de trabajo con la secretaria, la administradora y al menos un doctor para entender el flujo completo del paciente.</li>
-      <li>Identificamos cuánto tiempo se va en tareas repetitivas que la IA puede hacer sola, sin perder la calidad de atención.</li>
-      <li>Mapeamos los no-shows, las cancelaciones y los horarios muertos: cuánto representan en dinero perdido y cómo recuperarlos.</li>
-      <li>Definimos cómo cada área puede crecer de forma segura y controlada con IA, sin generar caos en el equipo.</li>
-    </ul>
-  </div>
-
-  <div class="area-block">
-    <div class="area-header"><div class="area-icon-wrap green">🔄</div><div><div class="area-title green">Post-venta · Retención</div><div class="area-subtitle">El área más rentable y más ignorada</div></div></div>
-    <ul class="area-qs">
-      <li>Medimos cuántos pacientes del último año no volvieron y cuánto representa en ingresos no recuperados.</li>
-      <li>Revisamos si hay contacto real con el paciente después de su atención, o si simplemente se va y nadie lo vuelve a llamar.</li>
-      <li>Tomáslizamos el sistema de reseñas en Google: cuántas hay y cómo mejorar esa reputación de forma sistemática.</li>
-      <li>Diseñamos un sistema de referidos: los pacientes satisfechos son el canal más barato que existe, y está dormido.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══ S5 PROCESO ══ -->
-<section class="section">
-  <div class="eyebrow">El proceso</div>
-  <h2>7 días de análisis,<br><em>dos propuestas listas</em></h2>
-  <p class="lead">Un proceso estructurado con fases claras. No es una conversación informal: es un diagnóstico real que termina con sistemas listos para activar.</p>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-left"><div class="tl-dot">1–2</div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-days">Días 1 y 2 · Datos</div><div class="tl-title">Lectura completa del estado actual</div><div class="tl-desc">Tomáslizamos Chatwoot, Dentalink, redes sociales y Google Business. <strong>Números reales, sin suposiciones.</strong></div></div></div>
-    <div class="tl-item"><div class="tl-left"><div class="tl-dot">3–4</div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-days">Días 3 y 4 · Flujos</div><div class="tl-title">Análisis con el equipo</div><div class="tl-desc">Sesiones con la secretaria, la administradora y un doctor. <strong>Entendemos el flujo real del paciente desde que llama hasta que paga.</strong></div></div></div>
-    <div class="tl-item"><div class="tl-left"><div class="tl-dot">5–6</div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-days">Días 5 y 6 · Estrategia</div><div class="tl-title">Diseño de la solución para Anpalex</div><div class="tl-desc">Con todos los datos, construimos dos propuestas concretas. <strong>No plantillas genéricas. Cada sistema diseñado para cómo funciona Anpalex.</strong></div></div></div>
-    <div class="tl-item"><div class="tl-left"><div class="tl-dot">7</div></div><div class="tl-content"><div class="tl-days">Día 7 · Entrega</div><div class="tl-title">Presentación y activación</div><div class="tl-desc">Presentamos las dos propuestas con costos exactos. <strong>La que elijas queda lista para implementar ese mismo día.</strong></div></div></div>
-  </div>
-  <div class="entregable-box"><div class="entregable-icon">📋</div><div><div class="entregable-title">Al final de los 7 días recibes</div><div class="entregable-sub">Informe completo de las 4 áreas · 2 propuestas estratégicas personalizadas · Sistemas configurados y listos para activar el día de la entrega</div></div></div>
-</section>
-
-<!-- ══ S6 PLANES ══ -->
-<section class="section">
-  <div class="eyebrow">Después de la auditoría</div>
-  <h2>Dos planes. <em>Tú decides.</em></h2>
-  <div class="planes-note">ℹ️ <strong>Los precios exactos se ajustan según lo que encuentre la auditoría.</strong> Esto es lo que incluye cada plan y los rangos según complejidad.</div>
-
-  <div class="plan-card">
-    <div class="plan-tier">Plan Básico</div>
-    <div class="plan-name">Crecimiento esencial</div>
-    <div class="plan-tagline">Lo necesario para operar mejor y atraer pacientes nuevos</div>
-    <div class="plan-pricing">
-      <div class="price-col"><div class="price-col-label">Instalación · una vez</div><div class="price-col-value">$600K – $1.2M</div><div class="price-col-sub">Según complejidad</div></div>
-      <div class="price-col"><div class="price-col-label">Mensualidad</div><div class="price-col-value">$500K – $990K</div><div class="price-col-sub">Mantenimiento y mejoras</div></div>
+<!-- RESUMEN TOP -->
+<div class="resumen-top">
+  <div class="rt-inner">
+    <div class="rt-item">
+      <div class="rt-icon">📣</div>
+      <div class="rt-text"><h4>Meta Ads gestionado</h4><p>Campañas activas, creativos con IA, embudo completo frío→caliente</p></div>
     </div>
-    <div class="plan-features-label">Incluye siempre</div>
-    <ul class="plan-features">
-      <li><span class="chk">✓</span>Agente IA de llamadas entrantes — atiende, informa y agenda pacientes 24/7</li>
-      <li><span class="chk">✓</span>Mejoras en el sitio web de la clínica</li>
-      <li><span class="chk">✓</span>Campaña de anuncios activa para los servicios más rentables</li>
-      <li><span class="chk">✓</span>Sesión de fotos profesionales de la clínica y el equipo</li>
-      <li><span class="chk">✓</span>Mejoras en el bot de IA actual basadas en datos reales</li>
-      <li><span class="chk">✓</span>Todo lo que se descubra en la auditoría</li>
-    </ul>
-  </div>
-
-  <div class="plan-card featured">
-    <div class="plan-badge">Recomendado</div>
-    <div class="plan-tier">Plan Pro</div>
-    <div class="plan-name">Crecimiento completo</div>
-    <div class="plan-tagline">Las 4 áreas cubiertas, mejoras continuas, marca sólida</div>
-    <div class="plan-pricing">
-      <div class="price-col"><div class="price-col-label">Instalación · una vez</div><div class="price-col-value">$1.2M – $3M</div><div class="price-col-sub">Según complejidad</div></div>
-      <div class="price-col"><div class="price-col-label">Mensualidad</div><div class="price-col-value">$1M – $2M</div><div class="price-col-sub">Asesoramiento + mejoras</div></div>
+    <div class="rt-item">
+      <div class="rt-icon">💬</div>
+      <div class="rt-text"><h4>Conectado a tu bot</h4><p>Cada anuncio abre WhatsApp y el bot agenda sin que Daniela haga nada</p></div>
     </div>
-    <div class="plan-features-label">Incluye todo el Plan Básico, más</div>
-    <ul class="plan-features">
-      <li><span class="chk">✓</span>Todo lo del Plan Básico incluido</li>
-      <hr class="plan-sep"><div class="plan-pro-label">Además incluye</div>
-      <li><span class="chk-pro">+</span>Agente IA de <strong>llamadas salientes y entrantes</strong> — llama a pacientes para confirmar, reactivar y hacer seguimiento</li>
-      <li><span class="chk-pro">+</span>Videos e imágenes generadas con IA para redes y campañas</li>
-      <li><span class="chk-pro">+</span>Construcción y mejora de marca — identidad, tono, coherencia en todos los canales</li>
-      <li><span class="chk-pro">+</span>Asesoramiento estratégico personalizado todos los meses</li>
-      <li><span class="chk-pro">+</span>Mejoras continuas al sistema cada mes</li>
-    </ul>
+    <div class="rt-item">
+      <div class="rt-icon">🛡️</div>
+      <div class="rt-text"><h4>Con garantía de resultados</h4><p>Si en 60 días el costo por paciente no baja, el mes 3 va gratis</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- S1: METODOLOGÍA DE TRABAJO -->
+<section class="section">
+  <div class="eyebrow">Cómo trabajamos</div>
+  <h2>La metodología:<br><em>un anuncio distinto para cada persona</em></h2>
+  <p class="lead">No todas las personas que ven un anuncio están en el mismo momento. Por eso no hacemos "un anuncio para todos": <strong>dividimos al público en 3 grupos, y a cada grupo le mostramos fotos y mensajes diferentes, con campañas separadas.</strong></p>
+  <div class="feat-grid cols3" style="margin-bottom:28px;">
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">❄️</div>
+      <h3>Público frío — no conoce la clínica</h3>
+      <p>Ve fotos llamativas y profesionales que presentan el servicio con un precio claro. El objetivo: que conozca Anpalex y escriba.</p>
+    </div>
+    <div class="feat-card c-amber">
+      <div class="fc-icon">🌤️</div>
+      <h3>Público tibio — la vio, pero no escribió</h3>
+      <p>Recibe un anuncio distinto, enfocado en generar confianza: el equipo, los resultados, las opiniones de otros pacientes.</p>
+    </div>
+    <div class="feat-card c-red">
+      <div class="fc-icon">🔥</div>
+      <h3>Público caliente — escribió, pero no agendó</h3>
+      <p>Recibe el empujón final: una oferta concreta con fecha límite para que reserve su hora de una vez.</p>
+    </div>
+  </div>
+  <div class="quote-box cyan" style="margin-bottom:28px;">
+    <p>Todo gira en torno a <strong>2 servicios</strong>: elegimos juntos los 2 más rentables de la clínica (por ejemplo, una limpieza como puerta de entrada y un tratamiento de mayor valor) y construimos todas las campañas alrededor de ellos.</p>
+  </div>
+  <div class="eyebrow" style="margin-bottom:14px;">Y todos los anuncios terminan en el mismo lugar</div>
+  <div class="funnel">
+    <div class="funnel-step">
+      <div class="fs-icon">📣</div>
+      <div class="fs-label">Anuncio Meta</div>
+      <div class="fs-sub">Instagram o Facebook</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">👆</div>
+      <div class="fs-label">1 clic</div>
+      <div class="fs-sub">Abre WhatsApp directo</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step funnel-unique">
+      <div class="fs-icon">🤖</div>
+      <div class="fs-label">Bot de IA</div>
+      <div class="fs-sub">Responde 24/7</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step funnel-unique">
+      <div class="fs-icon">📅</div>
+      <div class="fs-label">Agenda cita</div>
+      <div class="fs-sub">En Dentalink solo</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">🦷</div>
+      <div class="fs-label">Paciente llega</div>
+      <div class="fs-sub">Sin llamadas manuales</div>
+    </div>
+  </div>
+  <div class="quote-box cyan">
+    <p>El anuncio no lleva a un formulario ni a una página web: abre WhatsApp y el bot responde, agenda y confirma solo, a cualquier hora. <strong>Esa es la gran ventaja de Anpalex: el sistema ya está construido y lleva meses funcionando.</strong></p>
   </div>
 </section>
 
-<!-- ══ DEMO AGENTE IA ══ -->
-<section class="section">
-  <div class="eyebrow">Incluido en ambos planes</div>
-  <h2>🎙️ Demo en vivo del <em>agente de llamadas</em></h2>
-  <p class="lead">Este es el mismo tipo de agente que va integrado en tu plan. Pruébalo ahora mismo desde tu celular o computador.</p>
+<!-- S2: POR QUÉ NO ESTÁN CRECIENDO AÚN -->
+<section class="section bg-alt">
+  <div class="eyebrow red">Lo que falta hoy</div>
+  <h2>El sistema funciona.<br>Le falta combustible.</h2>
+  <p class="lead">El bot de WhatsApp atiende mensajes entrantes de maravilla. El problema es que la clínica depende 100% del boca a boca para que lleguen esos mensajes.</p>
+  <div class="feat-grid cols3">
+    <div class="feat-card c-red">
+      <div class="fc-icon">⚙️</div>
+      <h3>Sin infraestructura en Meta</h3>
+      <p>Sin píxel instalado, Meta no aprende de los resultados. La pauta quema plata sin datos que la mejoren.</p>
+    </div>
+    <div class="feat-card c-red">
+      <div class="fc-icon">🎨</div>
+      <h3>Sin flujo de creativos</h3>
+      <p>Un anuncio se satura en 2-3 semanas. Sin renovación constante, el costo por paciente sube y sube.</p>
+    </div>
+    <div class="feat-card c-red">
+      <div class="fc-icon">🔄</div>
+      <h3>Sin seguimiento</h3>
+      <p>Los que vieron el anuncio pero no escribieron se pierden para siempre. Nosotros les volvemos a aparecer con otro mensaje hasta que escriban.</p>
+    </div>
+  </div>
+  <div class="quote-box amber">
+    <p>Sus competidores de Maipú ya están pautando. <strong>Cada mes sin esto son pacientes que ven un anuncio de otra clínica antes que el de Anpalex.</strong></p>
+  </div>
+</section>
 
+<!-- S3: POR QUÉ NOSOTROS PODEMOS HACERLO MÁS BARATO -->
+<section class="section">
+  <div class="eyebrow">Cómo lo producimos</div>
+  <h2>Anuncios nuevos en minutos.<br>No en una semana.</h2>
+  <p class="lead">Usamos IA para generar fotos y videos profesionales a una velocidad que una agencia tradicional no puede igualar. Eso nos permite producir más creativos, renovarlos constantemente y cobrar mucho menos.</p>
+  <div class="ad-mockup-wrap">
+    <div class="ad-mockup">
+      <div class="am-header">
+        <div class="am-avatar">🦷</div>
+        <div>
+          <div class="am-name">Clínica Anpalex</div>
+          <div class="am-sponsored">Patrocinado</div>
+        </div>
+      </div>
+      <div class="am-image">
+        <div class="ai-badge">Generado con IA · Ejemplo</div>
+        <div class="ai-headline">¿Cuándo fue tu última limpieza dental?</div>
+        <div class="ai-price">$19.990</div>
+        <div class="ai-sub">Incluye revisión completa · Maipú</div>
+      </div>
+      <div class="am-footer">
+        <div class="am-cta">Ver más</div>
+        <div class="am-action">Enviar mensaje</div>
+      </div>
+    </div>
+    <div class="ad-mockup-text">
+      <h3>Así se ve un anuncio de Anpalex generado con IA</h3>
+      <p>Generamos con IA fotos llamativas y profesionales, con personas que transmiten confianza. Pueden ser los doctores reales de la clínica o personas creadas por IA — el resultado se ve igual de profesional. Eso nos permite producir muchos anuncios y renovarlos sin límite.</p>
+      <div class="speed-row"><span>🕐</span><span>Agencia tradicional: 5-7 días por unos pocos creativos, diseñador incluido</span></div>
+      <div class="speed-row"><span>⚡</span><span><strong>Nosotros: en minutos, con muchos más creativos</strong>, misma calidad visual</span></div>
+      <div class="speed-row"><span>🔁</span><span>Cuando un anuncio se cansa → nuevo en esa misma tarde</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;">
+    <div class="eyebrow green" style="margin-bottom:14px;">Ejemplos reales que ya hicimos para Anpalex</div>
+    <p class="lead" style="margin-bottom:20px;">No son ejemplos genéricos: estos dos anuncios los produjimos para la clínica con IA. Así de profesionales se ven, con la marca Anpalex y un servicio concreto.</p>
+    <div class="real-gallery" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <figure style="margin:0;">
+        <img src="../../creativos_ai/anpalex/anpalex_BENEFICIO_sonrisa.png" alt="Anuncio Anpalex — La sonrisa que abre puertas" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
+        <figcaption style="font-size:12px; color:var(--mute2); margin-top:8px; text-align:center;">Ángulo beneficio · público frío</figcaption>
+      </figure>
+      <figure style="margin:0;">
+        <img src="../../creativos_ai/anpalex/anpalex_MIEDO_sangrado.png" alt="Anuncio Anpalex — ¿Te sangran las encías al cepillarte?" style="width:100%; border-radius:14px; border:1px solid var(--border); display:block;">
+        <figcaption style="font-size:12px; color:var(--mute2); margin-top:8px; text-align:center;">Ángulo urgencia · capta al que duda</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- S4: FEE VS AD SPEND (compacto) -->
+<section class="section bg-alt">
+  <div class="eyebrow">Antes de los precios</div>
+  <h2>Dos montos distintos,<br>sin confusión</h2>
+  <div class="fee-grid">
+    <div class="fee-box cyan">
+      <div class="fee-label">Gasto 1 — Pauta</div>
+      <h3>Plata que va a Meta</h3>
+      <p>Lo que Meta cobra por mostrar los anuncios. Lo paga la clínica <strong>con su propia tarjeta, directo a Meta</strong>. Nosotros nunca tocamos esa plata.</p>
+    </div>
+    <div class="fee-box green">
+      <div class="fee-label">Gasto 2 — Honorario</div>
+      <h3>Plata que va a nosotros</h3>
+      <p>Lo que nos pagan por crear anuncios, configurar campañas, optimizar y reportar. <strong>Monto fijo mensual, sin sorpresas.</strong></p>
+    </div>
+  </div>
+  <p style="font-size:13px; color:var(--mute2); text-align:center;">En cada plan mostramos los dos montos por separado y el desembolso total real.</p>
+</section>
+
+</div><!-- /wrap -->
+
+<!-- SEPARADOR PLAN BÁSICO -->
+<div class="plan-sep-banner basico">
+  <div class="plan-num">Plan 01 de 02</div>
+  <h2>Plan Básico · "Encendido"</h2>
+  <p>Un solo objetivo: <strong>conseguir clientes nuevos</strong>. Lo necesario para que lleguen pacientes por Meta y el bot los agende.</p>
+  <div class="plan-sep-outcome">🎯 Objetivo: 5 a 8 pacientes nuevos al mes</div>
+</div>
+
+<div class="wrap">
+
+<!-- S5: BÁSICO — LO QUE CONSIGUEN -->
+<section class="section">
+  <div class="eyebrow green">Plan Básico · Qué incluye</div>
+  <h2>Todo lo necesario para<br><span class="green">arrancar y medir</span></h2>
+  <div class="feat-grid cols3">
+    <div class="feat-card c-green">
+      <div class="fc-icon">💬</div>
+      <h3>Campaña 1 — Ventas por WhatsApp</h3>
+      <p>Meta busca a las personas con más ganas de comprar y las manda directo al WhatsApp de la clínica, donde el bot las agenda.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🎯</div>
+      <h3>Campaña 2 — Clientes potenciales por WhatsApp</h3>
+      <p>Captura a los interesados que quieren más información y los lleva a la misma conversación con el bot. Nadie queda sin atender.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🏗️</div>
+      <h3>Base técnica lista en semana 1</h3>
+      <p>Configuramos el seguimiento en Meta para que el algoritmo aprenda de cada cita agendada, no solo de cada clic.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🖼️</div>
+      <h3>10 fotos por campaña</h3>
+      <p>Generadas con IA: 2 de oferta o promesa, 4 que muestran un beneficio y 4 que apelan al miedo del paciente (ej. encías que sangran). Renovación constante para que Meta no las queme.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">🔧</div>
+      <h3>Análisis 1 vez al mes</h3>
+      <p>Revisamos qué anuncio funciona y cuál no. El que no funciona se elimina y se reemplaza por uno nuevo.</p>
+    </div>
+    <div class="feat-card c-green">
+      <div class="fc-icon">📋</div>
+      <h3>Reporte mensual fácil de leer</h3>
+      <p>Cuántas personas escribieron, cuántas agendaron, cuánto costó cada paciente y cuánto retornó. Reunión de 30 minutos para revisarlo juntos.</p>
+    </div>
+  </div>
+  <div class="quote-box green" style="margin-top:24px;">
+    <p>Las dos campañas están <strong>conectadas al bot que ya funciona</strong>: la persona toca el anuncio, se abre WhatsApp, y el bot responde y agenda sin que nadie de la clínica haga nada.</p>
+  </div>
+  <div style="margin-top:32px;">
+    <div class="eyebrow green" style="margin-bottom:14px;">Qué trae cada reporte (en los dos planes)</div>
+    <div class="metric-list">
+      <div class="metric-item"><div class="mi-icon">💬</div><div class="mi-text"><strong>Personas que escribieron</strong> — cuántas conversaciones nuevas llegaron desde los anuncios.</div></div>
+      <div class="metric-item"><div class="mi-icon">📅</div><div class="mi-text"><strong>Pacientes que agendaron</strong> — cuántas de esas conversaciones terminaron en una cita.</div></div>
+      <div class="metric-item"><div class="mi-icon">💰</div><div class="mi-text"><strong>Costo por paciente (CAC)</strong> — cuánta plata de anuncios costó conseguir cada paciente nuevo.</div></div>
+      <div class="metric-item"><div class="mi-icon">📈</div><div class="mi-text"><strong>Retorno (ROI)</strong> — por cada peso invertido, cuántos pesos volvieron a la clínica.</div></div>
+      <div class="metric-item"><div class="mi-icon">⏳</div><div class="mi-text"><strong>Vida útil del paciente (LTV)</strong> — cuánto gasta en total un paciente durante todo su tiempo en la clínica, no solo en la primera visita.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S6: BÁSICO PRECIO + ROI -->
+<section class="section bg-alt">
+  <div class="eyebrow green">Plan Básico · Inversión</div>
+  <h2>Cuánto cuesta</h2>
+  <p class="lead">El honorario es lo que nos pagan a nosotros. La pauta va directo a Meta desde la tarjeta de la clínica.</p>
+  <div class="pricing-card basico">
+    <div class="pc-eyebrow">Honorario mensual</div>
+    <div class="pc-main">
+      <div class="pc-left">
+        <div class="pc-amount">$320.000</div>
+        <div class="pc-period">neto + IVA · por mes</div>
+        <div class="pc-setup-note"><strong>Setup inicial (una vez):</strong><br>$250.000 + IVA</div>
+      </div>
+      <div class="pc-right">
+        <div class="pc-row"><span class="pr-label">Honorario neto</span><span class="pr-val">$320.000</span></div>
+        <div class="pc-row muted"><span class="pr-label">IVA 19%</span><span class="pr-val">$60.800</span></div>
+        <div class="pc-row highlighted basico"><span class="pr-label">Honorario con IVA</span><span class="pr-val">$380.800</span></div>
+        <div class="pc-row muted" style="margin-top:4px;"><span class="pr-label">+ Pauta Meta (tu tarjeta)</span><span class="pr-val">$200.000</span></div>
+        <div class="pc-total-box basico">
+          <div class="pc-total-label">Total desembolso / mes</div>
+          <div class="pc-total-val">$580.800</div>
+          <div class="pc-total-sub">Honorario IVA + pauta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="roi-box">
+    <div class="roi-eyebrow">¿Cuándo se paga solo?</div>
+    <h3>Con 1 paciente de ortodoncia o implante, el plan queda cubierto.</h3>
+    <p>El ticket promedio de un tratamiento mayor en Anpalex supera los $600.000. Si el plan trae aunque sea <strong>2 pacientes nuevos al mes</strong> con ese perfil, el retorno es 2x en el primer mes. Y esos pacientes siguen volviendo.</p>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<!-- SEPARADOR PLAN PRO -->
+<div class="plan-sep-banner pro">
+  <div class="plan-num">Plan 02 de 02</div>
+  <h2>Plan Pro · "Escalable"</h2>
+  <p>Dos objetivos a la vez: <strong>conseguir más clientes y que la clínica se conozca mejor</strong> — más seguidores en Instagram y Facebook, más pacientes, y una marca más sólida.</p>
+  <div class="plan-sep-outcome">🚀 Objetivo: 12 a 20 pacientes nuevos al mes + crecer la marca</div>
+</div>
+
+<div class="wrap">
+
+<!-- S7: PRO ATTRIBUTION STACK (antes del precio) -->
+<section class="section">
+  <div class="eyebrow amber">⭐ El diferenciador del Plan Pro</div>
+  <h2>El bot no deja escapar<br>a nadie que mostró interés</h2>
+  <div class="quote-box amber" style="margin-bottom:28px;">
+    <p>De cada 10 personas que escriben a una clínica, 6 o 7 no agendan a la primera. En la mayoría de las clínicas, esas personas se pierden para siempre. <strong>En el Plan Pro, el bot las recupera.</strong></p>
+  </div>
+  <div class="feat-grid cols3" style="margin-bottom:28px;">
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🔁</div>
+      <h3>Seguimiento activo</h3>
+      <p>A todos los que hablaron con el bot pero no agendaron, el bot les vuelve a escribir a los pocos días para retomar la conversación.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🎁</div>
+      <h3>Promociones de recuperación</h3>
+      <p>Si la persona sigue sin decidirse, recibe una oferta especial pensada para que reserve su hora de una vez.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">📈</div>
+      <h3>Análisis 2 veces al mes</h3>
+      <p>Cada 15 días revisamos las campañas, eliminamos los anuncios que no funcionan y los reemplazamos por nuevos. Con reporte quincenal.</p>
+    </div>
+  </div>
+  <p class="lead" style="margin-bottom:24px;">Además, el Plan Pro mide el <strong>valor completo de cada paciente</strong>: conectamos cada anuncio con cada paciente y con lo que factura en Dentalink — no solo en su primera visita.</p>
+  <div class="eyebrow" style="margin-bottom:14px;">El recorrido real de un paciente</div>
+  <div class="attr-flow">
+    <div class="attr-step">
+      <div class="attr-day">Día 0</div>
+      <div class="attr-event">Ve el anuncio "Limpieza $19.990" en Instagram → clic → WhatsApp → bot agenda.</div>
+      <div class="attr-ltv">CAC: $35.000</div>
+    </div>
+    <div class="attr-step">
+      <div class="attr-day">Día 7</div>
+      <div class="attr-event">Viene a la clínica. Paga la limpieza.</div>
+      <div class="attr-ltv">+ $19.990</div>
+    </div>
+    <div class="attr-step">
+      <div class="attr-day">Día 30</div>
+      <div class="attr-event">Le detectan una caries. Tratamiento.</div>
+      <div class="attr-ltv">+ $250.000</div>
+    </div>
+    <div class="attr-step">
+      <div class="attr-day">Día 180</div>
+      <div class="attr-event">Implante.</div>
+      <div class="attr-ltv">+ $800.000</div>
+    </div>
+    <div class="attr-step highlight">
+      <div class="attr-day">TOTAL año 1</div>
+      <div class="attr-event">Todo atribuido al anuncio del Día 0. Un solo paciente, un solo click.</div>
+      <div class="attr-ltv">$1.094.990 · ROI 31x</div>
+    </div>
+  </div>
+  <div class="quote-box cyan">
+    <p>Podemos hacer este seguimiento porque el bot ya está conectado a Dentalink: sabe quién escribió, quién agendó y quién no. <strong>Una agencia externa no tiene ese acceso.</strong></p>
+  </div>
+</section>
+
+<!-- S8: PRO — LO QUE INCLUYE -->
+<section class="section bg-alt">
+  <div class="eyebrow">Plan Pro · Qué incluye</div>
+  <h2>Todo el Básico, <em>más el sistema completo</em></h2>
+  <div class="feat-grid cols3">
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🔁</div>
+      <h3>Seguimiento activo con el bot</h3>
+      <p>El bot vuelve a escribir a los que hablaron y no agendaron, y les ofrece promociones para recuperarlos. Nadie se pierde.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🎬</div>
+      <h3>15 fotos + 2 videos por campaña</h3>
+      <p>15 fotos (6 de miedo, 6 de beneficio, 3 de oferta) más 2 videos por campaña. Nosotros creamos la estrategia y el guión de cada video. El video es el formato que Meta más premia.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🔀</div>
+      <h3>Embudo 3 etapas</h3>
+      <p>Frío (presentación) → Tibio (mensaje distinto para los que ya vieron) → Caliente (oferta de cierre para los que estaban listos).</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">📣</div>
+      <h3>Campaña de reconocimiento</h3>
+      <p>2 videos llamativos pensados para que la gente recuerde la clínica, no para vender directo. Hacen que más personas conozcan el Instagram y Facebook de Anpalex: más seguidores, más presencia, más confianza.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">🎨</div>
+      <h3>Mejora de marca</h3>
+      <p>Trabajamos la imagen de la clínica: identidad visual coherente, tono y mensajes que hacen que Anpalex se vea más profesional en todos los canales.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">📋</div>
+      <h3>Lead Ads: los tímidos también</h3>
+      <p>Formulario dentro de Instagram. Captura nombre y teléfono de los que no quieren escribir por WhatsApp. El bot los contacta después.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">📊</div>
+      <h3>Dashboard en tiempo real</h3>
+      <p>Link privado 24/7. Masiel puede ver los resultados en cualquier momento sin esperar el reporte.</p>
+    </div>
+    <div class="feat-card c-cyan">
+      <div class="fc-icon">⚡</div>
+      <h3>Análisis 2 veces al mes</h3>
+      <p>El doble que el Básico: cada 15 días eliminamos los anuncios que no funcionan, los reemplazamos por nuevos y enviamos el reporte.</p>
+    </div>
+  </div>
+  <div class="quote-box cyan" style="margin-top:24px;">
+    <p>La diferencia es clara: <strong>el Básico es para conseguir clientes. El Pro es para conseguir más clientes y, además, hacer crecer la clínica</strong> — más seguidores, mejor marca y un sistema que recupera a cada interesado.</p>
+  </div>
+</section>
+
+<!-- S9: PRO PRECIO + ROI -->
+<section class="section">
+  <div class="eyebrow">Plan Pro · Inversión</div>
+  <h2>Cuánto cuesta</h2>
+  <p class="lead">Mismo modelo que el Básico. Honorario fijo a nosotros, pauta directo a Meta.</p>
+  <div class="pricing-card pro">
+    <div class="pc-eyebrow">Honorario mensual</div>
+    <div class="pc-main">
+      <div class="pc-left">
+        <div class="pc-amount">$690.000</div>
+        <div class="pc-period">neto + IVA · por mes</div>
+        <div class="pc-setup-note"><strong>Setup inicial (una vez):</strong><br>$490.000 + IVA</div>
+      </div>
+      <div class="pc-right">
+        <div class="pc-row"><span class="pr-label">Honorario neto</span><span class="pr-val">$690.000</span></div>
+        <div class="pc-row muted"><span class="pr-label">IVA 19%</span><span class="pr-val">$131.100</span></div>
+        <div class="pc-row highlighted pro"><span class="pr-label">Honorario con IVA</span><span class="pr-val">$821.100</span></div>
+        <div class="pc-row muted" style="margin-top:4px;"><span class="pr-label">+ Pauta Meta (tu tarjeta)</span><span class="pr-val">$450.000</span></div>
+        <div class="pc-total-box pro">
+          <div class="pc-total-label">Total desembolso / mes</div>
+          <div class="pc-total-val">$1.271.100</div>
+          <div class="pc-total-sub">Honorario IVA + pauta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="roi-box">
+    <div class="roi-eyebrow">El contexto real</div>
+    <h3>Un solo paciente de implante cubre el plan completo de ese mes.</h3>
+    <p>El ticket promedio de un implante supera el $1.000.000. Si el Plan Pro trae <strong>3 pacientes con ese perfil al mes</strong> — y el sistema de atribución lo prueba con datos reales — el retorno es 3x sobre la inversión total. Mes a mes.</p>
+  </div>
+</section>
+
+<!-- S10: GARANTÍA — SECCIÓN PROPIA -->
+<section class="section bg-alt">
+  <div class="eyebrow green">Garantía de resultados</div>
+  <h2>Si no funciona,<br><em>el mes 3 va gratis.</em></h2>
+  <div class="garantia-block">
+    <div class="gb-icon">🛡️</div>
+    <div class="gb-eyebrow">Garantía exclusiva Plan Pro</div>
+    <h2>Sin resultados en 60 días → mes 3 sin costo</h2>
+    <p>Si en los primeros 2 meses el costo por paciente nuevo no baja del promedio del mercado dental chileno, <strong>el mes 3 lo damos sin cargo</strong>. Sin trámites, sin letra chica.</p>
+    <div class="gb-conditions">
+      <span class="gb-cond">60 días de margen</span>
+      <span class="gb-cond">Sin preguntas incómodas</span>
+      <span class="gb-cond">Exclusivo Plan Pro</span>
+      <span class="gb-cond">Mes 3 gratis si no hay resultados</span>
+    </div>
+  </div>
+</section>
+
+<!-- S11: COMPARATIVA -->
+<section class="section">
+  <div class="eyebrow">Comparación lado a lado</div>
+  <h2>Básico vs Pro</h2>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-center th-basico">Básico</th>
+          <th class="col-center th-pro">Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="feat-col">Objetivo de pacientes / mes</td><td class="col-center">5 – 8</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">12 – 20</td></tr>
+        <tr><td class="feat-col">Honorario total con IVA</td><td class="col-center">$380.800</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">$821.100</td></tr>
+        <tr><td class="feat-col" style="color:var(--mute2);">+ Pauta Meta sugerida</td><td class="col-center" style="color:var(--mute);">$200.000</td><td class="col-center" style="color:var(--mute);">$450.000</td></tr>
+        <tr><td class="feat-col">Para qué sirve</td><td class="col-center">Conseguir clientes</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">Más clientes + crecer la marca</td></tr>
+        <tr><td class="feat-col">Campañas activas</td><td class="col-center">2 — Ventas + Clientes potenciales</td><td class="col-center">3 embudo + reconocimiento IG/FB</td></tr>
+        <tr><td class="feat-col">Creativos por campaña</td><td class="col-center">10 fotos</td><td class="col-center">15 fotos + 2 videos</td></tr>
+        <tr><td class="feat-col">Análisis y optimización</td><td class="col-center">1 vez al mes</td><td class="col-center">2 veces al mes</td></tr>
+        <tr><td class="feat-col">Reportes (escribieron, agendaron, CAC, ROI, LTV)</td><td class="col-center">Mensual</td><td class="col-center">Cada 15 días</td></tr>
+        <tr><td class="feat-col">Bot recontacta a los que no agendaron</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Promociones de recuperación</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Campaña de reconocimiento (más seguidores)</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Mejora de marca</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Dashboard en vivo 24/7</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Lead Ads (captura tímidos)</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Atribución anuncio → paciente → factura</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr><td class="feat-col">Garantía de resultados</td><td class="col-center"><span class="chk-no">—</span></td><td class="col-center"><span class="chk-yes">✓</span></td></tr>
+        <tr class="row-total"><td class="feat-col">Total mensual (IVA + pauta)</td><td class="col-center" style="font-weight:700;">$580.800</td><td class="col-center" style="color:var(--cyan-d);font-weight:700;">$1.271.100</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ESTILOS ADD-ONS + DEMO -->
+<style>
+  .addon-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start; margin-bottom:14px; }
+  .addon-card .ac-icon { width:52px; height:52px; border-radius:13px; background:var(--cyan-l); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+  .addon-card .ac-body { flex:1; }
+  .addon-card .ac-body h3 { font-size:17px; font-weight:800; color:var(--navy); margin-bottom:5px; }
+  .addon-card .ac-body p { font-size:14px; color:var(--soft); line-height:1.6; }
+  .addon-card .ac-price { text-align:right; flex-shrink:0; }
+  .addon-card .ac-price .ac-amount { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; color:var(--cyan-d); line-height:1; }
+  .addon-card .ac-price .ac-period { font-size:11px; color:var(--mute2); margin-top:3px; }
+  @media (max-width:620px) {
+    .addon-card { flex-wrap:wrap; }
+    .addon-card .ac-price { text-align:left; width:100%; margin-top:6px; }
+  }
+  .demo-section { background:var(--navy); border-radius:20px; padding:40px 36px; margin-top:28px; position:relative; overflow:hidden; }
+  .demo-section::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--cyan-d),var(--cyan),#34d399); }
+  .demo-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(52,211,153,.12); border:1px solid rgba(52,211,153,.25); color:#34d399; font-size:12px; font-weight:700; padding:4px 12px; border-radius:100px; margin-bottom:18px; }
+  .demo-title { font-size:22px; font-weight:800; color:#fff; margin-bottom:8px; }
+  .demo-sub { font-size:15px; color:#94a3b8; margin-bottom:24px; line-height:1.6; }
+  .demo-caps { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px; }
+  .demo-cap { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:11px 15px; display:flex; align-items:center; gap:10px; font-size:13px; color:#cbd5e1; }
+  .demo-cap span { font-size:17px; }
+  .demo-call-box { background:rgba(56,189,248,.08); border:1.5px solid rgba(56,189,248,.25); border-radius:14px; padding:24px 28px; text-align:center; }
+  .demo-mic-note { font-size:13px; color:#64748b; margin-bottom:18px; }
+  .demo-mic-note strong { color:#94a3b8; }
+  #call-btn { display:inline-flex; align-items:center; gap:10px; padding:15px 34px; background:var(--cyan-d); color:#fff; font-size:16px; font-weight:700; font-family:'Inter',sans-serif; border:none; border-radius:12px; cursor:pointer; transition:background .2s; }
+  #call-btn.active { background:#dc2626; }
+  #call-btn:disabled { opacity:.5; cursor:not-allowed; }
+  #call-status { margin-top:14px; font-size:14px; color:#64748b; min-height:20px; }
+  #call-status.connected { color:#34d399; font-weight:600; }
+  #call-status.error { color:#f87171; }
+  @media (max-width:620px) { .demo-caps { grid-template-columns:1fr; } }
+</style>
+
+<!-- S12B: SERVICIOS PARA AÑADIR -->
+<section class="section">
+  <div class="eyebrow amber">Opcionales · se suman a cualquier plan</div>
+  <h2>Servicios para <em>añadir</em></h2>
+  <p class="lead">Si quieres ir más allá de la publicidad, puedes sumar estos servicios al plan que elijas. Cada uno tiene su precio aparte y se cobra solo si lo activas.</p>
+
+  <div class="addon-card">
+    <div class="ac-icon">📸</div>
+    <div class="ac-body">
+      <h3>Contenido orgánico para redes</h3>
+      <p>Subimos contenido llamativo y profesional al Instagram y Facebook de Anpalex: <strong>2 fotos + 1 video a la semana</strong>. Mantiene las redes vivas y atrae seguidores sin pagar pauta.</p>
+    </div>
+    <div class="ac-price"><div class="ac-amount">+$160.000</div><div class="ac-period">al mes</div></div>
+  </div>
+
+  <div class="addon-card">
+    <div class="ac-icon">📞</div>
+    <div class="ac-body">
+      <h3>Agente de llamadas con IA</h3>
+      <p>Un agente que contesta y hace llamadas por teléfono: atiende a pacientes nuevos, confirma citas y reactiva inactivos hablando en español natural, las 24 horas. Pruébalo tú mismo más abajo 👇</p>
+    </div>
+    <div class="ac-price"><div class="ac-amount">+$290.000</div><div class="ac-period">al mes</div></div>
+  </div>
+
+  <div class="addon-card">
+    <div class="ac-icon">💬</div>
+    <div class="ac-body">
+      <h3>Responder comentarios de Instagram</h3>
+      <p>Respondemos los comentarios de las publicaciones y anuncios de Anpalex para que ninguna consulta quede sin contestar y la clínica se vea siempre activa.</p>
+    </div>
+    <div class="ac-price"><div class="ac-amount">+$29.000</div><div class="ac-period">al mes</div></div>
+  </div>
+
+  <!-- DEMO AGENTE DE LLAMADAS -->
   <div class="demo-section">
-    <div class="demo-badge">✓ Incluido en Plan Básico y Plan Pro</div>
-    <div class="demo-title">Agente de llamadas IA — Clínica Anpalex</div>
-    <div class="demo-sub">El agente atiende 24/7, habla en español natural y puede hacer todo esto sin intervención humana:</div>
+    <div class="demo-badge">🎙️ Demo en vivo · agente de llamadas</div>
+    <div class="demo-title">Escucha al agente de llamadas de Anpalex</div>
+    <div class="demo-sub">Este es el mismo agente del servicio opcional. Habla en español natural y puede hacer todo esto sin que nadie de la clínica intervenga:</div>
     <div class="demo-caps">
-      <div class="demo-cap"><span>📞</span>Recibir llamadas de pacientes nuevos</div>
-      <div class="demo-cap"><span>📅</span>Agendar y confirmar citas en Dentalink</div>
-      <div class="demo-cap"><span>🔁</span>Llamar a pacientes inactivos para reactivarlos</div>
-      <div class="demo-cap"><span>⏰</span>Recordatorios automáticos de citas</div>
-      <div class="demo-cap"><span>❓</span>Responder preguntas frecuentes de la clínica</div>
-      <div class="demo-cap"><span>📝</span>Registrar datos y derivar a Daniela si necesario</div>
+      <div class="demo-cap"><span>📞</span>Recibe llamadas de pacientes nuevos</div>
+      <div class="demo-cap"><span>📅</span>Agenda y confirma citas en Dentalink</div>
+      <div class="demo-cap"><span>🔁</span>Llama a pacientes inactivos para reactivarlos</div>
+      <div class="demo-cap"><span>❓</span>Responde preguntas frecuentes de la clínica</div>
     </div>
     <div class="demo-call-box">
       <div class="demo-mic-note">🎤 <strong>Necesitas micrófono</strong> — funciona en celular y PC. El navegador pedirá permiso antes de empezar.</div>
@@ -491,43 +939,73 @@ function checkPw() {
   </div>
 </section>
 
-<!-- ══ S7 PRECIO AUDITORÍA ══ -->
+<!-- S13: OFERTA ESPECIAL + URGENCIA -->
 <section class="section">
-  <div class="eyebrow">El primer paso</div>
-  <h2>La auditoría, <em>inversión única</em></h2>
-  <p class="lead">El costo de la auditoría se descuenta del plan que elijas. No es un gasto extra: es el diagnóstico que garantiza que lo que implementemos sea exactamente lo que necesita Anpalex.</p>
-  <div class="audit-card">
-    <div class="audit-eyebrow">Auditoría Completa · Clínica Anpalex</div>
-    <div class="audit-title">7 días · 4 áreas · 2 propuestas</div>
-    <div class="audit-sub">Datos reales de tu clínica · Sistemas listos para activar el día 7<br>Sin compromisos adicionales hasta que elijas un plan</div>
-    <div class="price-display">
-      <span class="price-old">$990.000</span>
-      <span style="font-size:20px;color:#475569">→</span>
-      <span class="price-new">$850.000</span>
-    </div>
-    <p class="price-note">Precio especial · <strong>por llevar un mes trabajando juntos ✓</strong></p>
-    <div class="pay-opts">
-      <div class="pay-opt main"><div class="pay-opt-label">✓ Contado</div><div class="pay-opt-price">$850.000</div><div class="pay-opt-sub">Con descuento<br>Pago antes de empezar</div></div>
-      <div class="pay-opt"><div class="pay-opt-label">En cuotas</div><div class="pay-opt-price">$990.000</div><div class="pay-opt-sub">3 cuotas de $330.000<br>Primera antes de empezar</div></div>
-    </div>
-    <div class="audit-chips">
-      <span>Análisis Chatwoot + Dentalink</span>
-      <span>Google Business + redes</span>
-      <span>Sesiones con el equipo</span>
-      <span>Estrategia personalizada</span>
-      <span>Sistemas listos el día 7</span>
+  <div class="eyebrow amber">Beneficio por ser ya clientes</div>
+  <h2>Una atención especial<br>para Anpalex</h2>
+  <p class="lead">Por llevar más de un mes trabajando juntos con el bot, queremos facilitarles dar este paso.</p>
+  <div class="oferta-box">
+    <div class="oferta-eyebrow">🎁 Beneficio cliente activo</div>
+    <div class="oferta-title">25% de descuento en el primer mes de honorario</div>
+    <div class="oferta-body">Aplicable al honorario neto, no a la pauta. Es nuestro agradecimiento por la confianza. <strong>Ahorro real: $80.000 en el Básico · $172.500 en el Pro.</strong></div>
+    <div class="oferta-chips">
+      <span class="oferta-chip urgente">⏰ Válido hasta el 20 de junio</span>
+      <span class="oferta-chip">Solo al honorario neto</span>
+      <span class="oferta-chip">Sin compromisos adicionales</span>
     </div>
   </div>
 </section>
 
+<!-- S14: CRONOGRAMA -->
+<section class="section bg-alt">
+  <div class="eyebrow">El primer mes</div>
+  <h2>Qué pasa <em>semana a semana</em></h2>
+  <p class="lead">Del acuerdo a campañas activas en menos de 7 días.</p>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot">S1</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week">Semana 1</div>
+        <div class="tl-title">Setup técnico — Anpalex no tiene que hacer nada</div>
+        <div class="tl-desc">Configuramos el seguimiento en Meta, las audiencias y la conexión con el bot. Generamos los anuncios iniciales con IA: personas llamativas y profesionales, para los 2 servicios elegidos.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot">S2</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week">Semana 2</div>
+        <div class="tl-title">Campañas activas — Meta empieza a aprender</div>
+        <div class="tl-desc">Los anuncios se publican. Meta entra en su fase de aprendizaje de 7 días, que es la más importante de todo el proceso. No se toca nada hasta que termine.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot">S3</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-week">Semana 3</div>
+        <div class="tl-title">Primera optimización</div>
+        <div class="tl-desc">Cortamos lo que no convierte, escalamos lo que sí. Subimos creativos frescos para el siguiente ciclo. Los primeros pacientes ya deberían estar llegando.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot">S4</div></div>
+      <div class="tl-content">
+        <div class="tl-week">Semana 4</div>
+        <div class="tl-title">Primer reporte + reunión 30 minutos</div>
+        <div class="tl-desc">Cuántas personas escribieron, cuántos pacientes agendaron, cuánto costó cada uno y qué viene el mes siguiente. En el Plan Pro este análisis se repite cada 15 días.</div>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:20px; font-size:13px; color:var(--mute2); text-align:center;">Contrato de 3 meses con renovación. Después puede cancelar con 30 días de aviso.</p>
+</section>
+
 </div><!-- /wrap -->
 
-<!-- ══ MODAL DUDAS ══ -->
+<!-- MODAL DUDAS -->
 <div class="modal-overlay" id="modalDudas" onclick="if(event.target===this)cerrarModal()">
   <div class="modal-box">
     <div class="modal-title">💬 Escribe tu duda</div>
     <div class="modal-sub">Te respondo por WhatsApp lo antes posible.</div>
-    <textarea class="modal-textarea" id="dudaTexto" placeholder="Ej: ¿La auditoría incluye análisis de redes también? ¿Cuándo podríamos empezar?"></textarea>
+    <textarea class="modal-textarea" id="dudaTexto" placeholder="Ej: ¿El Plan Pro incluye la sesión de fotos? ¿Cuándo podemos empezar?"></textarea>
     <div class="modal-actions">
       <button class="btn-ws" onclick="enviarDuda()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.707a.5.5 0 00.609.61l5.9-1.463A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.378l-.36-.214-3.732.926.945-3.653-.234-.375A9.862 9.862 0 012.118 12C2.118 6.54 6.54 2.118 12 2.118S21.882 6.54 21.882 12 17.46 21.882 12 21.882z"/></svg>
@@ -538,35 +1016,40 @@ function checkPw() {
   </div>
 </div>
 
-<!-- ══ POPUP 60s ══ -->
-<div id="demo-popup">
-  <div style="font-size:24px;margin-bottom:8px;">📞</div>
-  <div class="pop-title">¿Quieres escuchar el agente?</div>
-  <div class="pop-sub">Prueba ahora mismo la demo del agente de llamadas IA de Anpalex.</div>
-  <div class="pop-btns">
-    <button class="pop-go" onclick="scrollToDemo()">Ir a la demo</button>
-    <button class="pop-close" onclick="document.getElementById('demo-popup').classList.remove('show')">Cerrar</button>
-  </div>
-</div>
-
-<!-- ══ CTA ══ -->
+<!-- CTA -->
 <div class="cta-section">
-  <h2>¿<em>Lista</em> para empezar?</h2>
-  <p>Reservamos tu espacio para la semana del 2 de junio.<br>Responde este correo y lo coordinamos hoy.</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
-    <a href="mailto:lukas.conejero40@gmail.com?subject=Auditoria Clinica Anpalex - Confirmo&body=Hola Lukas, quiero confirmar la auditoria." style="display:inline-block;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;background:#059669;color:#fff;text-decoration:none;">🚀 ¡Démosle con la auditoría!</a>
-    <button onclick="abrirModal()" style="padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;font-family:'Inter',sans-serif;border:none;background:#fbbf24;color:#78350f;cursor:pointer;">💬 Tengo dudas</button>
+  <div class="cta-rec-label">⭐ Recomendado para Anpalex</div>
+  <h2>¿Arrancamos con<br>el <em>Plan Pro</em>?</h2>
+  <p>Tienen el bot, tienen el sistema, tienen los pacientes.<br>Solo falta el combustible para que lleguen más cada mes.</p>
+  <div style="margin-bottom:12px; font-size:13px; color:#f59e0b; font-weight:600;">⏰ El 25% de descuento vence el 20 de junio</div>
+  <div class="cta-btns">
+    <a href="mailto:lukas.conejero40@gmail.com?subject=Meta Ads Anpalex - Plan Pro&body=Hola Lukas, quiero arrancar con el Plan Pro." class="btn-pro">⭐ Quiero el Plan Pro</a>
+    <a href="mailto:lukas.conejero40@gmail.com?subject=Meta Ads Anpalex - Plan Basico&body=Hola Lukas, quiero arrancar con el Plan Básico." class="btn-basico">Prefiero el Plan Básico</a>
+  </div>
+  <div style="margin-bottom:28px;">
+    <button onclick="abrirModal()" class="btn-dudas">💬 Tengo preguntas primero</button>
   </div>
   <div class="cta-contact">
-    <strong>Lukas Conejeros</strong><br>
-    lukas.conejero40@gmail.com<br>
-    <span>Conejeros IA · Sistema activo desde abril 2026</span>
+    <strong>Lukas Conejeros · Conejeros IA</strong><br>
+    lukas.conejero40@gmail.com · +56 9 9906 6071<br>
+    <span>Sistema activo desde abril 2026</span>
   </div>
 </div>
 
-<!-- ══ VAPI SDK (oficial html-script-tag) ══ -->
+<script>
+  function abrirModal() { document.getElementById('modalDudas').classList.add('open'); setTimeout(()=>document.getElementById('dudaTexto').focus(),100); }
+  function cerrarModal() { document.getElementById('modalDudas').classList.remove('open'); }
+  function enviarDuda() {
+    var texto = document.getElementById('dudaTexto').value.trim();
+    if (!texto) { document.getElementById('dudaTexto').focus(); return; }
+    window.open('https://wa.me/56999066071?text=' + encodeURIComponent('Hola Lukas, soy Masiel de Clínica Anpalex. Tengo una pregunta sobre la propuesta de Meta Ads:\n\n' + texto), '_blank');
+    cerrarModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
+</script>
+
+<!-- VAPI SDK — demo agente de llamadas -->
 <style>
-  /* Ocultar el botón flotante por defecto de VAPI — usamos el nuestro */
   #vapi-support-btn, .vapi-btn, [class*="vapi-btn"] { display:none !important; }
 </style>
 <script>
@@ -575,7 +1058,7 @@ function checkPw() {
   let vapiInst = null;
   let callActive = false;
 
-  function initVapi() {
+  (function initVapi() {
     (function(d, t) {
       var g = document.createElement(t), s = d.getElementsByTagName(t)[0];
       g.src = 'https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js';
@@ -585,12 +1068,7 @@ function checkPw() {
         vapiInst = window.vapiSDK.run({
           apiKey: VAPI_KEY,
           assistant: ASSISTANT,
-          config: {
-            position: 'bottom-right',
-            offset: '-500px',   // fuera de pantalla
-            width: '1px',
-            height: '1px',
-          }
+          config: { position: 'bottom-right', offset: '-500px', width: '1px', height: '1px' }
         });
         vapiInst.on('call-start',   () => setStatus('connected', '🟢 Conectado · el agente está escuchando'));
         vapiInst.on('call-end',     () => { callActive = false; resetBtn(); setStatus('', ''); });
@@ -600,13 +1078,12 @@ function checkPw() {
       };
       g.onerror = function() { setStatus('error', '❌ No se pudo cargar el SDK · verifica tu conexión'); };
     })(document, 'script');
-  }
+  })();
 
   function setStatus(cls, msg) {
     var el = document.getElementById('call-status');
     if (el) { el.className = cls; el.textContent = msg; }
   }
-
   function resetBtn() {
     var btn = document.getElementById('call-btn');
     if (!btn) return;
@@ -615,31 +1092,22 @@ function checkPw() {
     btn.disabled = false;
     callActive = false;
   }
-
   async function toggleCall() {
-    if (callActive) {
-      if (vapiInst) vapiInst.stop();
-      resetBtn();
-      return;
-    }
-
+    if (callActive) { if (vapiInst) vapiInst.stop(); resetBtn(); return; }
     var btn = document.getElementById('call-btn');
     btn.disabled = true;
     btn.innerHTML = '⏳ Conectando...';
     setStatus('', 'Solicitando acceso al micrófono...');
-
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
     } catch(e) {
       setStatus('error', '❌ Sin acceso al micrófono · actívalo en la configuración del navegador');
       resetBtn(); return;
     }
-
     if (!vapiInst) {
       setStatus('error', '❌ SDK cargando · espera unos segundos e intenta de nuevo');
       resetBtn(); return;
     }
-
     try {
       setStatus('', '⏳ Iniciando llamada...');
       await vapiInst.start(ASSISTANT);
@@ -652,31 +1120,7 @@ function checkPw() {
       resetBtn();
     }
   }
-
-  // ── MODAL DUDAS ──
-  function abrirModal() { document.getElementById('modalDudas').classList.add('open'); setTimeout(()=>document.getElementById('dudaTexto').focus(),100); }
-  function cerrarModal() { document.getElementById('modalDudas').classList.remove('open'); }
-  function enviarDuda() {
-    var texto = document.getElementById('dudaTexto').value.trim();
-    if (!texto) { document.getElementById('dudaTexto').focus(); return; }
-    window.open('https://wa.me/56999066071?text=' + encodeURIComponent('Hola Lukas, soy Masiel de Clínica Anpalex. Tengo una duda sobre la propuesta:\n\n' + texto), '_blank');
-    cerrarModal();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
-
-  // ── POPUP 60s ──
-  function scrollToDemo() {
-    document.getElementById('demo-popup').classList.remove('show');
-    document.querySelector('.demo-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  // ── TIMERS (arrancan después del password) ──
-  function startTimers() {
-    initVapi();
-    setTimeout(() => {
-      document.getElementById('demo-popup').classList.add('show');
-    }, 60000);
-  }
 </script>
+
 </body>
 </html>
